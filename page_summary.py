@@ -4,7 +4,22 @@ import streamlit.components.v1 as components
 
 def page_summary_body():
 
-    st.markdown("<h1 style='text-align: center;'>IUC02</h1>", unsafe_allow_html=True)
+    # Set the page background image to appear on the right side
+    page_bg_img = '''
+    <style>
+    [data-testid="stApp"] {
+        background-color: white;  /* Set white background color */
+        background-image: url("https://owncloud.fraunhofer.de/index.php/s/O8IEa05wALHXyVh/download?path=%2FLogos%20und%20Grafiken%2FLogo_NFDI-MatWerk%2F2020-07-03_neuesLogo&files=Logo_NFDI-MatWerk-1000px.png");
+        background-position: 95% 95%;
+        background-size: 40vh;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
+    '''
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+    st.markdown('<h3 style="color: black;">IUC02 Integration</h3>', unsafe_allow_html=True)
 
     container_size = 530  # px (canvas size)
     circle_size = 190  # px (individual circle size)
@@ -31,7 +46,7 @@ def page_summary_body():
             <a href="{url}" target="_blank" 
             style="position: absolute; left: {x}px; top: {y}px;
                     width: {circle_size}px; height: {circle_size}px;
-                    border-radius: 50%; background-color: #3498db; color: white;
+                    border-radius: 50%; background-color: #3498db; color: black;
                     font-size: 20px; font-weight: bold;
                     text-decoration: none; display: flex;
                     align-items: center; justify-content: center;
@@ -51,4 +66,4 @@ def page_summary_body():
     """
 
     # Use components.html to correctly render the HTML and CSS
-    components.html(f"<div style='text-align: center;'>{circle_html}</div>", height=container_size + 50)
+    components.html(f"<div style='text-align: center;'>{circle_html}</div>", height=container_size + 100)
