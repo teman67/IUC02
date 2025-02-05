@@ -2,7 +2,7 @@ import streamlit as st
 from multipage import MultiPage
 
 # Set page configuration here
-st.set_page_config(page_title="IUC02", page_icon=":star:", layout="wide")
+st.set_page_config(page_title="IUC02", page_icon="🌐", layout="wide")
 
 # load pages scripts
 from page_summary import page_summary_body
@@ -15,7 +15,7 @@ from page_summary import page_summary_body
 app = MultiPage(app_name="IUC02")  # Create an instance of the app
 
 # Add your app pages here using .add_page()
-app.add_page("Project Overview", page_summary_body)
+app.add_page("IUC02 Overview", page_summary_body)
 # app.add_page("User Registration", registration_page)
 # app.add_page("Explore Ollama Models", LLM_models)
 # app.add_page("Chat History Overview", display_conversation_history)
