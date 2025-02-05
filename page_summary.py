@@ -1,17 +1,15 @@
 import streamlit as st
-import math
 import streamlit.components.v1 as components
 
 def page_summary_body():
-
-    # Set the page background image to appear on the right side
+    # Set the page background image
     page_bg_img = '''
     <style>
     [data-testid="stApp"] {
-        background-color: white;  /* Set white background color */
+        background-color: white;
         background-image: url("https://owncloud.fraunhofer.de/index.php/s/O8IEa05wALHXyVh/download?path=%2FLogos%20und%20Grafiken%2FLogo_NFDI-MatWerk%2F2020-07-03_neuesLogo&files=Logo_NFDI-MatWerk-1000px.png");
         background-position: 95% 95%;
-        background-size: 40vh;
+        background-size: 30vh;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
@@ -19,14 +17,32 @@ def page_summary_body():
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-    st.markdown('<h3 style="color: black;">IUC02 Integration</h3>', unsafe_allow_html=True)
+    st.markdown('''
+    <h3 style="color: black; text-align: left; margin-bottom: 0px">
+        IUC02: Framework for Curation and Distribution of Reference Datasets
+    </h3>
+    <h3 style="color: black; text-align: left; margin-top: 0px; margin-bottom: 20px">
+        (on the Example of Creep Data of Ni-Based Superalloys)
+    </h3>
+    ''', unsafe_allow_html=True)
+    
+    # Add descriptive text above the workflow
+    description_text = '''
+    <p style="text-align: justify; font-size: 18px; color: black; margin: auto;">
+    The aim of this IUC is to develop a framework for reference material data sets using creep properties of single crystal Ni-based superalloy as example. 
+    Such reference data sets are necessary for (i) evaluating and validating experimental/modeling methods and their uncertainties, 
+    (ii) assessing the performance of analysis, modelling and simulation tools by use of standardized processes and 
+    (iii) providing comprehensive material descriptions (e.g., meta-data schemas and ontologies). 
+    Community-driven processes will be established for the definition, identification and curation of reference material data sets, including metadata, raw data and processed data, and quality assessment routines. 
+    Reference data set will contain detailed meta-data and context concerning materials history, data collection (e.g., testing and measurement equipment, calibration status/certificate) 
+    and the related specific uncertainty/error (measurement, model, simulation). Existing data on Ni-base superalloys from PP18 BAM and PP01 SFB/TR103 will be used, 
+    where superalloys have been well characterized using a broad spectrum of characterization methods and in-depth data is available.
+    </p>
+    '''
+    st.markdown(description_text, unsafe_allow_html=True)
 
-    container_size = 530  # px (canvas size)
-    circle_size = 190  # px (individual circle size)
-    big_circle_radius = 160  # Distance from center
-
-    # Define links for circles
-    links = [
+    # Define workflow steps
+    steps = [
         ("Metadata Ontology", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747"),
         ("Fair Digital Object", "https://kit-data-manager.github.io/fairdoscope/"),
@@ -34,36 +50,33 @@ def page_summary_body():
         ("Dataset Validation", "https://ulb-darmstadt.github.io/shacl-form/#example"),
     ]
 
-    # Generate circle positions using trigonometry
-    circle_html = f'''
-        <div style="position: relative; width: {container_size}px; height: {container_size}px; margin: auto;">
-    '''
-    for i, (text, url) in enumerate(links):
-        angle = (2 * math.pi / len(links)) * i  # Evenly distribute circles
-        x = container_size / 2 + big_circle_radius * math.cos(angle) - circle_size / 2
-        y = container_size / 2 + big_circle_radius * math.sin(angle) - circle_size / 2
-        circle_html += f'''
+    # Generate workflow as horizontal boxes
+    workflow_html = """
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 50px;">
+    """
+    
+    for text, url in steps:
+        workflow_html += f'''
             <a href="{url}" target="_blank" 
-            style="position: absolute; left: {x}px; top: {y}px;
-                    width: {circle_size}px; height: {circle_size}px;
-                    border-radius: 50%; background-color: #3498db; color: black;
-                    font-size: 20px; font-weight: bold;
-                    text-decoration: none; display: flex;
-                    align-items: center; justify-content: center;
-                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-                    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;">
+            style="display: flex; align-items: center; justify-content: center;
+                   width: 200px; height: 90px; background-color: #3498db;
+                   color: white; font-size: 16px; font-weight: bold;
+                   text-decoration: none; text-align: center;
+                   border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+                   transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;">
             {text}
             </a>
         '''
-
-    circle_html += """
+    
+    workflow_html += """
+    </div>
     <style>
         a:hover {
-            background-color: #2ecc71 !important;  /* Change to green on hover */
-            transform: scale(1.2);  /* Zoom in */
+            background-color: #2ecc71 !important;
+            transform: scale(1.1);
         }
     </style>
     """
 
-    # Use components.html to correctly render the HTML and CSS
-    components.html(f"<div style='text-align: center;'>{circle_html}</div>", height=container_size + 100)
+    # Render the HTML component
+    components.html(workflow_html, height=150)
