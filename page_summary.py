@@ -43,11 +43,11 @@ def page_summary_body():
 
     # Define workflow steps
     steps = [
-        ("Metadata Ontology", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
+        ("Data Generation", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
+        ("Semantic Resources and Metadata Schema", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
+        ("Reference Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example"),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747"),
-        ("Fair Digital Object", "https://kit-data-manager.github.io/fairdoscope/"),
-        ("Data Retrieval", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
-        ("Dataset Validation", "https://ulb-darmstadt.github.io/shacl-form/#example"),
+        ("Fair Data Object (FDO)", "https://kit-data-manager.github.io/fairdoscope/"),
     ]
 
     # Generate workflow as horizontal boxes
@@ -59,8 +59,8 @@ def page_summary_body():
         workflow_html += f'''
             <a href="{url}" target="_blank" 
             style="display: flex; align-items: center; justify-content: center;
-                   width: 200px; height: 90px; background-color: #3498db;
-                   color: white; font-size: 16px; font-weight: bold;
+                   width: 220px; height: 90px; background-color: #3498db;
+                   color: white; font-size: 18px; font-weight: bold;
                    text-decoration: none; text-align: center;
                    border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
                    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;">
