@@ -6,13 +6,13 @@ def page_summary_body():
 
     st.markdown("<h1 style='text-align: center;'>IUC02</h1>", unsafe_allow_html=True)
 
-    container_size = 520  # px (canvas size)
-    circle_size = 200  # px (individual circle size)
+    container_size = 530  # px (canvas size)
+    circle_size = 190  # px (individual circle size)
     big_circle_radius = 160  # Distance from center
 
     # Define links for circles
     links = [
-        ("Metadata Ontology", "https://www.google.com"),
+        ("Metadata Ontology", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747"),
         ("Fair Digital Object", "https://kit-data-manager.github.io/fairdoscope/"),
         ("Data Retrieval", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
