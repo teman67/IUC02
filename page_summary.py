@@ -6,9 +6,9 @@ def page_summary_body():
 
     st.markdown("<h1 style='text-align: center;'>IUC02</h1>", unsafe_allow_html=True)
 
-    container_size = 620  # px (canvas size)
-    circle_size = 220  # px (individual circle size)
-    big_circle_radius = 190  # Distance from center
+    container_size = 520  # px (canvas size)
+    circle_size = 200  # px (individual circle size)
+    big_circle_radius = 160  # Distance from center
 
     # Define links for circles
     links = [
