@@ -126,7 +126,7 @@ def page_summary_body():
 
         .hover-box:hover {
             background-color: #05445e;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
     </style>
     """
