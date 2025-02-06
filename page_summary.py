@@ -9,7 +9,7 @@ def page_summary_body():
         background-color: white;
         background-image: url("https://owncloud.fraunhofer.de/index.php/s/O8IEa05wALHXyVh/download?path=%2FLogos%20und%20Grafiken%2FLogo_NFDI-MatWerk%2F2020-07-03_neuesLogo&files=Logo_NFDI-MatWerk-1000px.png");
         background-position: 95% 95%;
-        background-size: 30vh;
+        background-size: 20vh;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
@@ -42,36 +42,89 @@ def page_summary_body():
     st.markdown(description_text, unsafe_allow_html=True)
 
     # Define workflow steps
+    # Define workflow steps
     steps = [
-        ("Data Generation", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
-        ("Semantic Resources and Metadata Schema", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02"),
-        ("Reference Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example"),
-        ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747"),
-        ("Fair Data Object (FDO)", "https://kit-data-manager.github.io/fairdoscope/"),
+        ("Data Generation", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", []),
+        ("Semantic Resources and Metadata Schema", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", [
+            "Json Metadata Schema",
+            "Reference Data Set (for creep data)",
+            "RDO(C)",
+            "SCHACL Shape",
+        ]),
+        ("Reference Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example", []),
+        ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
+        ("Fair Data Object (FDO)", "https://kit-data-manager.github.io/fairdoscope/", []),
     ]
 
     # Generate workflow as horizontal boxes
     workflow_html = """
     <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 50px;">
     """
-    
-    for text, url in steps:
-        workflow_html += f'''
-            <a href="{url}" target="_blank" 
-            style="display: flex; align-items: center; justify-content: center;
-                   width: 220px; height: 90px; background-color: #3498db;
-                   color: white; font-size: 18px; font-weight: bold;
-                   text-decoration: none; text-align: center;
-                   border-radius: 10px; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-                   transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;">
-            {text}
-            </a>
-        '''
-    
+
+    for text, url, bullet_points in steps:
+        if bullet_points:
+            # Special larger box for "Semantic Resources and Metadata Schema"
+            workflow_html += f'''
+                <div class="hover-box large-box" onclick="window.open('{url}', '_blank')">
+                    <a href="{url}" target="_blank">{text}</a>
+                    <ul>
+            '''
+            for bullet in bullet_points:
+                workflow_html += f'<li>{bullet}</li>'
+            workflow_html += '</ul></div>'
+        
+        else:
+            # Standard box for other steps
+            workflow_html += f'''
+                <a href="{url}" target="_blank" class="hover-box">
+                    {text}
+                </a>
+            '''
+
     workflow_html += """
     </div>
     <style>
-        a:hover {
+        /* Default Box Style */
+        .hover-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 210px;
+            height: 70px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Larger Box for "Semantic Resources and Metadata Schema" */
+        .large-box {
+            width: 280px; /* Increased width */
+            height: 140px; /* Increased height */
+        }
+
+        .hover-box a {
+            color: white;
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .hover-box ul {
+            list-style-type: disc;
+            padding-left: 15px;
+            text-align: left;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .hover-box:hover {
             background-color: #2ecc71 !important;
             transform: scale(1.1);
         }
@@ -79,4 +132,5 @@ def page_summary_body():
     """
 
     # Render the HTML component
-    components.html(workflow_html, height=150)
+    components.html(workflow_html, height=250)
+
