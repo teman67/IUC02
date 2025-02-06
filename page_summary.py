@@ -24,7 +24,8 @@ def page_summary_body():
     <h3 style="color: black; text-align: left; margin-top: 0px; margin-bottom: 20px">
         (on the Example of Creep Data of Ni-Based Superalloys)
     </h3>
-    ''', unsafe_allow_html=True)
+    '''
+    , unsafe_allow_html=True)
     
     # Add descriptive text above the workflow
     description_text = '''
@@ -51,7 +52,7 @@ def page_summary_body():
             "RDO(C)",
             "SCHACL Shape",
         ]),
-        ("Reference Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example", []),
+        ("Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example", []),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
         ("Fair Data Object (FDO)", "https://kit-data-manager.github.io/fairdoscope/", []),
     ]
@@ -133,4 +134,3 @@ def page_summary_body():
 
     # Render the HTML component
     components.html(workflow_html, height=250)
-
