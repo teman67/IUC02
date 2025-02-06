@@ -25,7 +25,7 @@ def data_validation_page():
 
     st.markdown('''
     <h1 style=" text-align: left; margin-bottom: 10px">
-        RDF SHACL Validator
+        SHACL Validator
     </h1>
     <h3 style=" text-align: left; margin-top: 0px; margin-bottom: 2px">
         This page allows you to validate your data against a SHACL shape.
@@ -45,13 +45,13 @@ def data_validation_page():
     # RDF Upload and Download
     with col1:
         rdf_file_option = st.radio(
-            "Select RDF file:",
-            options=["Upload Your Own", "Use Example RDF"],
+            "Select Data Graph file:",
+            options=["Upload Your Own", "Use Example Data Graph"],
             index=0
         )
 
         if rdf_file_option == "Upload Your Own":
-            rdf_file = st.file_uploader("Upload RDF (Turtle format)", type=["ttl"])
+            rdf_file = st.file_uploader("Upload Data Graph (Turtle format)", type=["ttl"])
         else:
             # Use example RDF file
             rdf_content = get_example_file(example_rdf_path)
@@ -60,20 +60,20 @@ def data_validation_page():
     with col2:
         with open(example_rdf_path, "r") as f:
             rdf_example = f.read()
-        st.download_button("Download Example RDF", rdf_example, "example_data.ttl", "application/x-turtle")
+        st.download_button("Download Example Data Graph", rdf_example, "example_data.ttl", "application/x-turtle")
 
     # SHACL Upload and Download
     col3, col4 = st.columns([1, 1])
 
     with col3:
         shacl_file_option = st.radio(
-            "Select SHACL file:",
-            options=["Upload Your Own", "Use Example SHACL"],
+            "Select Shape Graph file:",
+            options=["Upload Your Own", "Use Example Shape Graph"],
             index=0
         )
 
         if shacl_file_option == "Upload Your Own":
-            shacl_file = st.file_uploader("Upload SHACL (Turtle format)", type=["ttl"])
+            shacl_file = st.file_uploader("Upload Shape Graph (Turtle format)", type=["ttl"])
         else:
             # Use example SHACL file
             shacl_content = get_example_file(example_shacl_path)
@@ -82,17 +82,23 @@ def data_validation_page():
     with col4:
         with open(example_shacl_path, "r") as f:
             shacl_example = f.read()
-        st.download_button("Download Example SHACL", shacl_example, "example_shacl.ttl", "application/x-turtle")
+        st.download_button("Download Example Shape Graph", shacl_example, "example_shacl.ttl", "application/x-turtle")
 
     # Process files
     if rdf_file and shacl_file:
         try:
             # Load RDF file content (either uploaded or example)
             g = Graph()
+
+            # Check if file is an instance of UploadedFile and read the content as bytes
             if isinstance(rdf_file, bytes):
                 g.parse(data=rdf_file, format="turtle")
+            elif isinstance(rdf_file, st.runtime.uploaded_file_manager.UploadedFile):
+                rdf_bytes = rdf_file.read()  # Read file content as bytes
+                g.parse(data=rdf_bytes, format="turtle")
             else:
                 g.parse(data=rdf_file, format="turtle")
+                
             st.success("RDF file is valid!")
 
             # Convert RDF to JSON-LD
@@ -103,6 +109,9 @@ def data_validation_page():
             shacl_shape = Graph()
             if isinstance(shacl_file, bytes):
                 shacl_shape.parse(data=shacl_file, format="turtle")
+            elif isinstance(shacl_file, st.runtime.uploaded_file_manager.UploadedFile):
+                shacl_bytes = shacl_file.read()  # Read file content as bytes
+                shacl_shape.parse(data=shacl_bytes, format="turtle")
             else:
                 shacl_shape.parse(data=shacl_file, format="turtle")
 
@@ -142,4 +151,3 @@ def data_validation_page():
 
 
 # Run the function
-data_validation_page()
