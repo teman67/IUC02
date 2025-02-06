@@ -1,20 +1,38 @@
 import streamlit as st
 import streamlit.components.v1 as components
+import base64
+import os
+
+def get_base64_encoded_image(image_path):
+    """Convert image to Base64."""
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+# Use absolute path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+image_path = os.path.join(current_dir, "Nfdi_Matwer_logo.png")
+
+if os.path.exists(image_path):
+    base64_img = get_base64_encoded_image(image_path)
+else:
+    st.error(f"Image not found: {image_path}")
+
 
 def page_summary_body():
     # Set the page background image
-    page_bg_img = '''
-    <style>
-    [data-testid="stApp"] {
-        background-color: white;
-        background-image: url("https://owncloud.fraunhofer.de/index.php/s/O8IEa05wALHXyVh/download?path=%2FLogos%20und%20Grafiken%2FLogo_NFDI-MatWerk%2F2020-07-03_neuesLogo&files=Logo_NFDI-MatWerk-1000px.png");
-        background-position: 95% 95%;
-        background-size: 20vh;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-    </style>
-    '''
+    # Set background
+    page_bg_img = f'''
+        <style>
+        [data-testid="stApp"] {{
+            background-color: white;
+            background-image: url("data:image/png;base64,{base64_img}");
+            background-position: 95% 95%;
+            background-size: 20vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }}
+        </style>
+        '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
     st.markdown('''

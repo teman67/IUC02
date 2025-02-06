@@ -30,7 +30,7 @@ def data_validation_page():
     <h3 style=" text-align: left; margin-top: 0px; margin-bottom: 2px">
         This page allows you to validate your data against a SHACL shape.
     </h3>
-    <h4 style=" text-align: left; margin-top: 0px; margin-bottom: 30px">
+    <h4 style=" text-align: left; margin-top: 0px; margin-bottom: 20px">
         Please upload your data and SHACL shape files below or use the example files.
     </h4>
     ''', unsafe_allow_html=True)
@@ -150,4 +150,3 @@ def data_validation_page():
             st.error(f"Error processing files: {e}")
 
 
-# Run the function
