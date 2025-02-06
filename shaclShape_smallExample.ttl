@@ -1,0 +1,99 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix s: <http://example.org/shapes/> .
+@prefix : <http://example.org/> .
+
+s:TestJob a sh:NodeShape ;
+   sh:targetClass :TestJob ;
+   sh:property [
+       sh:path :dateOftestStart ;
+       sh:datatype xsd:dateTime ;
+       sh:minCount 1 ;
+       sh:maxCount 1 ;
+   ] ;
+    sh:property [
+        sh:path :dateOfTestEnd ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path :testID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+   
+  s:TestStandard a sh:NodeShape ;
+   sh:targetClass :TestStandard ;
+   sh:property [
+       sh:path :testStandardApplied ;
+       sh:datatype xsd:boolean ;
+       sh:minCount 1 ;
+   ] ;
+   sh:property [
+        sh:path :testStandard ;
+       sh:datatype xsd:string ;
+       sh:minCount 1 ;
+       sh:maxCount 1;
+     ] .
+
+s:SpecifiedTemperature a sh:NodeShape ;
+   sh:targetClass :SpecifiedTemperature ;
+   sh:property [
+       sh:path :hasSpecifiedNumericValue ;
+       sh:datatype xsd:float ;
+       sh:minCount 1 ;
+   ] ;
+  sh:property [
+       sh:path :hasUnit ;
+       sh:in ("°C" "K" "F") ;
+       sh:minCount 1 ;
+   ] .
+
+
+
+s:TypeOfLoading a sh:NodeShape ;
+   sh:targetClass :TestJob ;
+    sh:property [
+        sh:path :typeOfLoading;
+        sh:in ( :Tension :Compression :Bending);
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "The type of loading must be one of the following Tension, Compression or Bending.";
+    ].
+
+s:InitialStress a sh:NodeShape ;
+   sh:targetClass :InitialStress ;
+   sh:property [
+       sh:path :hasSpecifiedNumericValue ;
+       sh:datatype xsd:float ;
+       sh:minCount 1 ;
+   ] ;
+  sh:property [
+       sh:path :hasUnit ;
+       sh:in ("N/mm^2" "MPa") ;
+       sh:minCount 1 ;
+   ] .
+
+
+s:TestedMaterial a sh:NodeShape ;
+   sh:targetClass :TestedMaterial ;
+   sh:property [
+       sh:path :digitalMaterialIdentifier ;
+       sh:datatype xsd:string;
+       sh:minCount 1 ;
+       sh:maxCount 1 ;
+   ] .
+
+s:DescriptionOfManufacturingProcess a sh:NodeShape ;
+   sh:targetClass :DescriptionOfManufacturingProcess ;
+   sh:property [
+       sh:path :hasDescription ;
+       sh:datatype xsd:string;
+       sh:minCount 1 ;
+   ] .
