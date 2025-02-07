@@ -1,0 +1,349 @@
+{
+    "mappedMeasurementData": {
+        "MeasurementData": {
+            "additionalMetadata": {
+                "testInfo": {
+                    "testJobDetails": {
+                        "dateOfTestStart": "30.8.23906",
+                        "testID": "520595"
+                    },
+                    "testParameters": {
+                        "testStandard": "20420194",
+                        "specifiedTemperature": {
+                            "value": "980",
+                            "unit": "TC"
+                        },
+                        "typeOfLoading": "",
+                        "initialStress": {
+                            "value": "140",
+                            "unit": "RoMPa"
+                        }
+                    },
+                    "materialRelated": {
+                        "materialHistoryAndCondition": {
+                            "digitalMaterialID": "6"
+                        },
+                        "testPiece": {
+                            "testPieceIItype": "",
+                            "testPieceIIItype": ""
+                        }
+                    }
+                },
+                "measuringAndTestEquipment": {
+                    "extensometerSystem": {
+                        "contactingExtensometerSensorType": ""
+                    }
+                }
+            },
+            "primaryData": {
+                "testResult": {
+                    "valuesAtTestStart": {
+                        "minimumTestPieceDiameterAtRoomTemperature": {
+                            "value": "599",
+                            "unit": "Dmm"
+                        },
+                        "referenceLengthToCalculatePercentageElongations": {
+                            "value": "239",
+                            "unit": "LrLomm"
+                        },
+                        "referenceLengthToCalculatePercentageExtensions": {
+                            "value": "229",
+                            "unit": "LrLemm"
+                        }
+                    },
+                    "valuesDuringTestRun": {
+                        "heatingTime": {
+                            "value": "161",
+                            "unit": "h"
+                        },
+                        "soakTime": {
+                            "value": "281",
+                            "unit": "h"
+                        },
+                        "testDuration": {
+                            "value": "1010",
+                            "unit": "th"
+                        }
+                    },
+                    "valuesAfterTestEnd": {
+                        "creepRuptureTime": {
+                            "value": "",
+                            "unit": "tuhNotapplicable"
+                        }
+                    }
+                }
+            },
+            "secondaryData": {
+                "testResult": {
+                    "elongationValues": {
+                        "percentagePermanentElongation": {
+                            "value": "114",
+                            "unit": "Aper"
+                        },
+                        "percentageElongationAfterCreepFracture": {
+                            "value": "",
+                            "unit": "AuNotapplicable"
+                        },
+                        "percentageReduction": {
+                            "value": "",
+                            "unit": "ZuNotapplicable"
+                        }
+                    },
+                    "extensionValues": {
+                        "percentageTotalExtension": {
+                            "value": "0964",
+                            "unit": "et"
+                        },
+                        "percentageInitialTotalExtension": {
+                            "value": "0153",
+                            "unit": "eti"
+                        },
+                        "percentageElasticExtension": {
+                            "value": "0153",
+                            "unit": "ee"
+                        },
+                        "percentageInitialPlasticExtension": {
+                            "value": "0",
+                            "unit": "ei"
+                        },
+                        "percentagePlasticExtension": {
+                            "value": "0811",
+                            "unit": "ep"
+                        },
+                        "percentageCreepExtension": {
+                            "value": "0811",
+                            "unit": "ef"
+                        }
+                    }
+                }
+            }
+        },
+        "Date of test end_value": null,
+        "Project_value": null,
+        "Test order_value": null,
+        "Test Standard Applied (Yes or No)_value": null,
+        "Load control type_value": null,
+        "Test type_value": null,
+        "End of test criterium_value": null,
+        "End of test criterium - value (if not test piece break)_value": null,
+        "Interruption Course_value": null,
+        "Interruption Course_unit": null,
+        "Test force_value": null,
+        "Test force_unit": null,
+        "Preload (Part of the test force)_value": null,
+        "Preload (Part of the test force)_unit": null,
+        "Other additional information (e": {
+            "g": {
+                " if constant stress)_value": null
+            }
+        },
+        "Related article(s) available?_value": null,
+        "DOI Article 1_value": null,
+        "Short description of content article 1_value": null,
+        "DOI Article 2_value": null,
+        "Short description of content article 2_value": null,
+        "DOI Article n_value": null,
+        "Short description of content article n_value": null,
+        "Information on phase equilibrium_value": null,
+        "Type of as-manufactured material(Cast / Ingot / Extrusion rod / \u00e2\u20ac\u00a6)_value": null,
+        "Description of the as-manufactured material (geometry and dimensions)_value": null,
+        "Description of the manufacturing process-as-manufactured material_value": null,
+        "Casting temperature_value": null,
+        "Casting temperature_unit": null,
+        "Casting speed_value": null,
+        "Single or polycrystal solidified_value": null,
+        "Condition_value": null,
+        "Supplier_value": null,
+        "Description of the as-tested material (geometry and dimensions) - The test piece is manufactured from the tested material_value": null,
+        "Description of the manufacturing process-as-tested material_value": null,
+        "Date of supply_value": null,
+        "Order number_value": null,
+        "Supplier sample ID_value": null,
+        "Heat Treatment - State_value": null,
+        "Multistage annealing?_value": null,
+        "Multistage ageing?_value": null,
+        "Atmosphere_value": null,
+        "Heat treatment - Annealing - Description_value": null,
+        "Heat treatment - Ageing - Description_value": null,
+        "Heat treatment - Protocol file_value": null,
+        "Chemical composition - nominal_value": null,
+        "Chemical composition - nominal_unit": null,
+        "Chemical composition - measured (including precision)_value": null,
+        "Chemical composition - measured (including precision)_unit": null,
+        "Measurement method_value": null,
+        "Measuring point_value": null,
+        "Partitioning of alloy elements in microstructure (dendrite cores and ID regions)_value": null,
+        "Chemical composition in gamma and gamma' regions (dendrite cores and ID regions)_value": null,
+        "Type of investigation (characterization method)_value": null,
+        "Grain size (if polycrystal)_value": null,
+        "Grain size (if polycrystal)_unit": null,
+        "Grain size - Determination method, measuring point_value": null,
+        "Grain size - documentation_value": null,
+        "Completely dissolved and re-precipitated gamma-gamma' gegions_value": null,
+        "Completely dissolved and re-precipitated gamma-gamma' gegions_unit": null,
+        "Gamma'-particles', average size_value": null,
+        "Gamma'-particles', average size_unit": null,
+        "Gamma'-particles', maximum size_value": null,
+        "Gamma'-particles', maximum size_unit": null,
+        "Dendrite spacings_value": null,
+        "Microstructure after test (SX/PX, gprime-Vol, gprime-size, dendrites)_value": null,
+        "Images of the microstructure before testing_value": null,
+        "Images of the microstructure after testing_value": null,
+        "Proof of single crystallinity_value": null,
+        "Single crystal orientation (Laue Crystal Verification": {
+            " Must be documented for each test piece)_value": null
+        },
+        "Single crystal orientation - Determination method, measuring point_value": null,
+        "Accuracy of the determination of the single crystal orientation_value": null,
+        "Crack inspection: e": {
+            "g": {
+                ", Penetrant certification/Radiographic Certification/XCT_value": null
+            }
+        },
+        "X-Ray film_value": null,
+        "0": {
+            "2 % Proof strength at room temperature_value": null,
+            "2 % Proof strength at room temperature_unit": null,
+            "2 % Proof strength at creep test temperature_value": null,
+            "2 % Proof strength at creep test temperature_unit": null
+        },
+        "Hardness_value": null,
+        "Test piece ID_value": null,
+        "Workshop order ID/ref": {
+            "_value": null
+        },
+        "Test piece history_value": null,
+        "Type of test piece I_value": null,
+        "Test piece technical drawing_value": null,
+        "Location of the test piece within the as-tested material_value": null,
+        "Positioning (Laue, precision) - Description whether coordinate systems of as-tested material and test piece coincide, and of the alignment in the test machine_value": null,
+        "Further information about sample(s)_value": null,
+        "Test machine ID_value": null,
+        "Type of test machine_value": null,
+        "Minimum applied force_value": null,
+        "Minimum applied force_unit": null,
+        "Maximum applied force_value": null,
+        "Maximum applied force_unit": null,
+        "Verification of Test Frame and Specimen Alignment according to ASTM E1012?_value": null,
+        "Please provide a description on the procedure followed for the Verification of Test Frame and Specimen Alignment if different from ASTM E1012_value": null,
+        "Calibration class (Alignment)_value": null,
+        "Data acquisition unit - Model information_value": null,
+        "Data acquisition unit - Laboratory ID_value": null,
+        "Data acquisition software and version_value": null,
+        "Data acquisition - description_value": null,
+        "Was the time checked during data acquisition?_value": null,
+        "Was the loading system calibrated/verified?_value": null,
+        "Calibration certificate_value": null,
+        "Calibration date_value": null,
+        "Calibration validity time period_value": null,
+        "Calibration standard_value": null,
+        "Calibration class_value": null,
+        "Range of calibration_value": null,
+        "Range of calibration_unit": null,
+        "Were calibrated weights used to apply the test force?_value": null,
+        "Was a load sensor used during loading?_value": null,
+        "Was the load sensor calibrated?_value": null,
+        "Was the force recorded continuously or phase-wise (e": {
+            "g": {
+                " during loading)?_value": null
+            }
+        },
+        "Has a calibration of the test force data acquisition been performed?_value": null,
+        "Was the room temperature recorded and checked?_value": null,
+        "Was the humidity recorded and checked?_value": null,
+        "Control via thermocouples on sample/via furnace_value": null,
+        "Furnace type_value": null,
+        "Metrological traceability (Yes, if Sensor AND Data acquisition checked)_value": null,
+        "Sensor type_value": null,
+        "Equipment ID_value": null,
+        "Type of thermocouple_value": null,
+        "Wire gauge_value": null,
+        "Wire gauge_unit": null,
+        "Layout_value": null,
+        "Is/are the thermocouples calibrated?_value": null,
+        "Calibration method_value": null,
+        "Deviation detected during calibration_value": null,
+        "Deviation detected during calibration_unit": null,
+        "Application: contact method_value": null,
+        "Application: number of thermocouples_value": null,
+        "Application: location with respect to gauge section_value": null,
+        "Is/are the data acquisition unit calibrated?_value": null,
+        "Reference junction_value": null,
+        "Type of strain measuring device_value": null,
+        "Sensor type - Non-contacting extensometer_value": null,
+        "Measurement is one-sided or two-sided?_value": null,
+        "Measurement: axial or diametrical action?_value": null,
+        "Mounting type_value": null,
+        "Extensometer model information _value": null,
+        "Equipment ID - Extensometer_value": null,
+        "Description of upper/lower legs (LVDT systems)_value": null,
+        "Measuring amplifier_value": null,
+        "Extension range - Upper limit_value": null,
+        "Extension range - Upper limit_unit": null,
+        "Extension range - Lower limit_value": null,
+        "Extension range - Lower limit_unit": null,
+        "Nominal gauge length (if applicable)_value": null,
+        "Nominal gauge length (if applicable)_unit": null,
+        "Is the extensometer including the data acquisition calibrated?_value": null,
+        "Description of primary and processed data series - Primary data is data that is directly acquired by sensors or measuring instruments during or after a test": {
+            " Processed data is obtained as a result of using procedures (equations, algorithms, methods, unit conversions) to transform data_value": null
+        },
+        "Description of primary data series processing (incl": {
+            " averaging, smoothing)_value": null
+        },
+        "Description of the data processing and analysis procedures used to obtain specific test results, e": {
+            "g": {
+                " percentage elastic extension, ee_value": null
+            }
+        },
+        "Were automated (user-independent) analysis workflows used?_value": null,
+        "Software, if applicable, including product and version_value": null,
+        "Related publications, if applicable_value": null,
+        "Original gauge length_value": null,
+        "Original gauge length_unit": null,
+        "Parallel length_value": null,
+        "Parallel length_unit": null,
+        "Extensometer gauge length_value": null,
+        "Extensometer gauge length_unit": null,
+        "Reference length for calculation of percentage elongations if Lo and/or extensometer Le are outside the parallel length": {
+            "_value": null,
+            "_unit": null
+        },
+        "Ratio Lr / D ; (if Lr = Lo)_value": null,
+        "Ratio Lr / D ; (if Lr = Lo)_unit": null,
+        "k-Value for Lr (if Lr = Lo)_value": null,
+        "k-Value for Lr (if Lr = Lo)_unit": null,
+        "Ratio Lr / D ; (if Lr > Lc)_value": null,
+        "Ratio Lr / D ; (if Lr > Lc)_unit": null,
+        "k-Value for Lr (if Lr > Lc)_value": null,
+        "k-Value for Lr (if Lr > Lc)_unit": null,
+        "Ratio Lr / D ; (if Lr = Le)_value": null,
+        "Ratio Lr / D ; (if Lr = Le)_unit": null,
+        "k-Value for Lr  (if Lr = Le)_value": null,
+        "k-Value for Lr  (if Lr = Le)_unit": null,
+        "Elapsed time from end of loading_value": null,
+        "Elapsed time from end of loading_unit": null,
+        "Extension_value": null,
+        "Extension_unit": null,
+        "Elongation_value": null,
+        "Elongation_unit": null,
+        "Position of the fracture_value": null,
+        "Final gauge length after fracture_value": null,
+        "Final gauge length after fracture_unit": null,
+        "Corrected measured temperature_value": null,
+        "Corrected measured temperature_unit": null,
+        "Force_value": null,
+        "Force_unit": null,
+        "Loading rate_value": null,
+        "Loading rate_unit": null,
+        "Unloading rate_value": null,
+        "Unloading rate_unit": null,
+        "Heating speed_value": null,
+        "Heating speed_unit": null,
+        "Cooling speed_value": null,
+        "Cooling speed_unit": null,
+        "Percentage plastic extension from end of loading_value": null,
+        "Percentage plastic extension from end of loading_unit": null,
+        "Was there an averaging of the strain/distance values? (two-sided extensometer)_value": null
+    }
+}
