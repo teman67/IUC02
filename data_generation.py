@@ -21,11 +21,17 @@ else:
 
 def get_example_file(file_path):
     """Reads and returns the content of an example file."""
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, "r", encoding="latin-1") as f:
         return f.read()
-
-
-import streamlit as st
+    
+def read_file(file_path):
+    """Safely read the file with multiple encoding attempts."""
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except UnicodeDecodeError:
+        with open(file_path, "r", encoding="latin-1") as f:  # Alternative encoding
+            return f.read()
 
 def data_generation_page():
     # Set the page background image
@@ -47,8 +53,7 @@ def data_generation_page():
     <h3 style="color: black; text-align: left; margin-bottom: 50px">
         From Data Generation to Data Validation
     </h3>
-    '''
-    , unsafe_allow_html=True)
+    ''', unsafe_allow_html=True)
 
     # File URLs (Replace these with actual URLs or paths)
     file1 = "Vh5205_C-95.LIS"  # File for Step 1
@@ -87,7 +92,7 @@ def data_generation_page():
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 50px;">
                 <b>Creep experiment input file (.lis file)</b><br>
-                <a href="{file1}" download style="color:blue; text-decoration:none;">Download</a>
+                <a href="{file1}" download style="color:blue; text-decoration:none;" onClick="show_file_content('{file1}')">Download</a>
             </div>
             ''',
             unsafe_allow_html=True
@@ -135,4 +140,49 @@ def data_generation_page():
             ''',
             unsafe_allow_html=True
         )
+    
+    # # Display file content in editable mode
+    # file_to_edit = st.selectbox("Choose a file to edit:", [file1, file2, file3a, file3b, ext_file1, ext_file2])
+    # if file_to_edit:
+    #     file_content = get_example_file(file_to_edit)
+    #     edited_content = st.text_area("Edit File Content", value=file_content, height=300)
+    #     if st.button("Save Changes"):
+    #         # Save the edited content back to the file
+    #         with open(file_to_edit, "w", encoding="latin-1") as f:
+    #             f.write(edited_content)
+    #         st.success(f"File '{file_to_edit}' has been updated.")
+
+    # File selection & editing
+    st.markdown("### Edit a File")
+
+    # Mapping file names to user-friendly labels
+    file_options = {
+        "Vh5205_C-95.LIS": "Creep Experiment Input File",
+        "Vh5205_C-95_translated.json": "Populated Metadata Schema",
+        "rdfGraph_smallExample.ttl": "Populated Data Graph",
+        "shaclShape_smallExample.ttl": "Shape Graph",
+        "mapping document.json": "Mapping Document",
+        "2024-09_Schema_IUC02_v1.json": "Metadata Schema"
+    }
+
+    # Dropdown to select a file (show friendly names)
+    selected_label = st.selectbox("Choose a file:", list(file_options.values()))
+
+    # Reverse lookup: Find the actual filename
+    file_to_edit = next((key for key, value in file_options.items() if value == selected_label), None)
+
+    if file_to_edit:
+        if "selected_file" not in st.session_state:
+            st.session_state.selected_file = None
+
+        if st.button("Load File"):
+            st.session_state.selected_file = file_to_edit
+
+        if st.session_state.selected_file == file_to_edit:
+            file_content = read_file(file_to_edit)
+            edited_content = st.text_area("Edit File Content", value=file_content, height=300)
+
+            if st.button("Save Changes"):
+                write_file(file_to_edit, edited_content)
+                st.success(f"File '{file_options[file_to_edit]}' has been updated.")
 
