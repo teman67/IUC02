@@ -68,7 +68,7 @@ def data_generation_page():
                         background-color:#05445e; border-radius:10px; color:white; 
                         font-size:18px; min-width:200px; 
                         margin-left: -60px;">  
-                <b>Mapping Step</b><br>
+                <b>Mapping</b><br>
                 <a href="{ext_file2}" download style="color:blue; text-decoration:none; font-size:16px; color:gray;">Metadata Schema</a><br>
                 <a href="{ext_file1}" download style="color:blue; text-decoration:none; font-size:16px; color:gray;">Mapping Document</a>
             </div>
@@ -95,13 +95,13 @@ def data_generation_page():
 
     with col2:
         st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -40px;">↓</div>', unsafe_allow_html=True)  # Down arrow
-        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 20px;">--→</div>', unsafe_allow_html=True)  # Right arrow
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 20px; font-weight:bold; ">→</div>', unsafe_allow_html=True)  # Right arrow
 
     with col3:
         st.markdown(
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px; margin-top: 50px;">
-                <b>Populated Schema</b><br>
+                <b>Populated metadata schema</b><br>
                 <a href="{file2}" download style="color:blue; text-decoration:none;">Download</a>
             </div>
             ''',
@@ -109,13 +109,13 @@ def data_generation_page():
         )
 
     with col4:
-        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px;">--→</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px; font-weight:bold; ">→</div>', unsafe_allow_html=True)
 
     with col5:
         st.markdown(
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: 50px;">
-                <b>Step 3</b><br>
+                <b>Populated Data Graph</b><br>
                 <a href="{file3a}" download style="color:blue; text-decoration:none;">Data Graph</a><br>
                 <a href="{file3b}" download style="color:blue; text-decoration:none;">Shape Graph</a>
             </div>
@@ -124,7 +124,7 @@ def data_generation_page():
         )
 
     with col6:
-        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px;">--→</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px; font-weight:bold; ">→</div>', unsafe_allow_html=True)
 
     with col7:
         st.markdown(
