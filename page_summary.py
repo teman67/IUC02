@@ -2,8 +2,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 import base64
 import os
-
-
 import time
 
 # Function to check if the warning message has been shown
@@ -106,7 +104,7 @@ def page_summary_body():
         ]),
         ("Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example", []),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
-        ("Fair Digital Objects (FDO)", "https://kit-data-manager.github.io/fairdoscope/", []),
+        ("Fair Digital Objects (FDO)", "https://kit-data-manager.github.io/fairdoscope/?pid=21.11152/253e0f2a-4d4a-4916-a45a-ef7cd8ad1f9b", []),
     ]
 
     # Generate workflow as horizontal boxes
