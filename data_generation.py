@@ -84,6 +84,25 @@ def data_generation_page():
     # Add space to separate extra box from main flow
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # First row for extra box above the first arrow
+    col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 2, 1, 2, 1, 2])
+
+    with col5:
+        st.markdown(
+            f'''
+            <div style="padding:20px; border:2px solid black; text-align:center; 
+                        background-color:#90CAF9; border-radius:10px; color:black; 
+                        min-width:50px;  max-width: 200px; margin-bottom: 20px; margin-top: -30px;
+                        ">  
+                <b>Shape Graph</b><br>
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+    # Add space to separate extra box from main flow
+    st.markdown("<br>", unsafe_allow_html=True)
+
     # Second row for the main workflow (aligned in a straight line)
     col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 2, 1, 2, 1, 2])
 
@@ -93,7 +112,7 @@ def data_generation_page():
         with st.container():
             st.markdown(
                 """
-                <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 50px;">
+                <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: -30px;">
                     <b>Creep experiment input file (.lis file)</b><br>
                 </div>
                 """,
@@ -108,13 +127,13 @@ def data_generation_page():
             # )
 
     with col2:
-        st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -40px;">↓</div>', unsafe_allow_html=True)  # Down arrow
-        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 20px; font-weight:bold; ">→</div>', unsafe_allow_html=True)  # Right arrow
+        st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -120px;">↓</div>', unsafe_allow_html=True)  # Down arrow
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: -50px; font-weight:bold; ">→</div>', unsafe_allow_html=True)  # Right arrow
 
     with col3:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px; margin-top: 50px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px; margin-top: -30px;">
                 <b>Populated metadata schema</b><br>
             </div>
             ''',
@@ -122,12 +141,12 @@ def data_generation_page():
         )
 
     with col4:
-        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px; font-weight:bold; ">→</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: -30px; font-weight:bold; ">→</div>', unsafe_allow_html=True)
 
     with col5:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: 50px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: -30px;">
                 <b>Populated Data Graph</b><br>
             </div>
             ''',
@@ -135,12 +154,12 @@ def data_generation_page():
         )
 
     with col6:
-        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px; font-weight:bold; ">→</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: -30px; font-weight:bold; ">→</div>', unsafe_allow_html=True)
 
     with col7:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#64B5F6; border-radius:10px; margin-top: 50px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#64B5F6; border-radius:10px; margin-top: -30px;">
                 <b>Validation Protocol</b>
             </div>
             ''',
