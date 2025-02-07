@@ -64,10 +64,13 @@ def data_generation_page():
     with col2:
         st.markdown(
             f'''
-            <div style="padding:10px; border:2px solid black; text-align:center; background-color:#FFCDD2; border-radius:10px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; 
+                        background-color:#FFCDD2; border-radius:10px; 
+                        font-size:18px; min-width:200px; 
+                        margin-left: -60px;">  
                 <b>Mapping Step</b><br>
-                <a href="{ext_file2}" download style="color:blue; text-decoration:none;">Metadata Schema</a><br>
-                <a href="{ext_file1}" download style="color:blue; text-decoration:none;">Mapping Document</a>
+                <a href="{ext_file2}" download style="color:blue; text-decoration:none; font-size:16px;">Metadata Schema</a><br>
+                <a href="{ext_file1}" download style="color:blue; text-decoration:none; font-size:16px;">Mapping Document</a>
             </div>
             ''',
             unsafe_allow_html=True
@@ -82,7 +85,7 @@ def data_generation_page():
     with col1:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 30px;">
                 <b>Creep experiment input file (.lis file)</b><br>
                 <a href="{file1}" download style="color:blue; text-decoration:none;">Download</a>
             </div>
@@ -91,13 +94,13 @@ def data_generation_page():
         )
 
     with col2:
-        st.markdown('<div style="text-align:center; font-size:30px;">↓</div>', unsafe_allow_html=True)  # Down arrow
-        st.markdown('<div style="text-align:center; font-size:40px;">→</div>', unsafe_allow_html=True)  # Right arrow
+        st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -40px;">↓</div>', unsafe_allow_html=True)  # Down arrow
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 20px;">--→</div>', unsafe_allow_html=True)  # Right arrow
 
     with col3:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px; margin-top: 50px;">
                 <b>Populated Schema</b><br>
                 <a href="{file2}" download style="color:blue; text-decoration:none;">Download</a>
             </div>
@@ -106,12 +109,12 @@ def data_generation_page():
         )
 
     with col4:
-        st.markdown('<div style="text-align:center; font-size:40px;">→</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px;">--→</div>', unsafe_allow_html=True)
 
     with col5:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: 50px;">
                 <b>Step 3</b><br>
                 <a href="{file3a}" download style="color:blue; text-decoration:none;">Data Graph</a><br>
                 <a href="{file3b}" download style="color:blue; text-decoration:none;">Shape Graph</a>
@@ -121,12 +124,12 @@ def data_generation_page():
         )
 
     with col6:
-        st.markdown('<div style="text-align:center; font-size:40px;">→</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: 50px;">--→</div>', unsafe_allow_html=True)
 
     with col7:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#64B5F6; border-radius:10px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#64B5F6; border-radius:10px; margin-top: 50px;">
                 <b>Validation Protocol</b>
             </div>
             ''',
