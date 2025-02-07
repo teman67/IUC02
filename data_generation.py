@@ -212,20 +212,20 @@ def data_generation_page():
         "2024-09_Schema_IUC02_v1.json": "Metadata Schema"
     }
 
-
     st.markdown(
-    """
-    <style>
-    .streamlit-expanderHeader {
-        font-size: 14px;
-    }
-    div[data-baseweb="select"] {
-        width: 400px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
+        """
+        <style>
+        .streamlit-expanderHeader {
+            font-size: 14px;
+        }
+        div[data-baseweb="select"] {
+            width: 400px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
     )
+
     # Dropdown to select a file (show friendly names)
     selected_label = st.selectbox("Choose a file:", list(file_options.values()))
 
@@ -242,13 +242,20 @@ def data_generation_page():
         file_content = read_file(file_to_edit)
         edited_content = st.text_area("Edit File Content", value=file_content, height=400)
 
+        # Extract file extension from the original file
+        file_extension = file_to_edit.split('.')[-1]
+        
         # st.button("Download Edited File"):
-        # # Convert the edited content to bytes for download
+        # Convert the edited content to bytes for download
         edited_file_bytes = edited_content.encode("latin-1")
+
+        # Update the file name with the original extension
+        file_name_with_extension = f"{selected_label.split('.')[0]}.{file_extension}"
 
         st.download_button(
             label="Download Edited File",
             data=edited_file_bytes,
-            file_name=selected_label,
+            file_name=file_name_with_extension,
             mime="application/octet-stream"
         )
+
