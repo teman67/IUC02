@@ -65,12 +65,12 @@ def data_generation_page():
         st.markdown(
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; 
-                        background-color:#FFCDD2; border-radius:10px; 
+                        background-color:#05445e; border-radius:10px; color:white; 
                         font-size:18px; min-width:200px; 
                         margin-left: -60px;">  
                 <b>Mapping Step</b><br>
-                <a href="{ext_file2}" download style="color:blue; text-decoration:none; font-size:16px;">Metadata Schema</a><br>
-                <a href="{ext_file1}" download style="color:blue; text-decoration:none; font-size:16px;">Mapping Document</a>
+                <a href="{ext_file2}" download style="color:blue; text-decoration:none; font-size:16px; color:gray;">Metadata Schema</a><br>
+                <a href="{ext_file1}" download style="color:blue; text-decoration:none; font-size:16px; color:gray;">Mapping Document</a>
             </div>
             ''',
             unsafe_allow_html=True
@@ -85,7 +85,7 @@ def data_generation_page():
     with col1:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 30px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 50px;">
                 <b>Creep experiment input file (.lis file)</b><br>
                 <a href="{file1}" download style="color:blue; text-decoration:none;">Download</a>
             </div>
