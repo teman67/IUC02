@@ -71,11 +71,11 @@ def data_generation_page():
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; 
                         background-color:#05445e; border-radius:10px; color:white; 
-                        font-size:18px; min-width:200px; 
-                        margin-left: -60px;">  
+                        font-size:18px; min-width:250px; 
+                        margin-left: -85px;">  
                 <b>Mapping</b><br>
-                <a href="{ext_file2}" download style="color:blue; text-decoration:none; font-size:16px; color:gray;">Metadata Schema</a><br>
-                <a href="{ext_file1}" download style="color:blue; text-decoration:none; font-size:16px; color:gray;">Mapping Document</a>
+                <li>Metadata Schema</li>
+                <li>Mapping Document</li>
             </div>
             ''',
             unsafe_allow_html=True
@@ -88,15 +88,24 @@ def data_generation_page():
     col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 2, 1, 2, 1, 2])
 
     with col1:
-        st.markdown(
-            f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 50px;">
-                <b>Creep experiment input file (.lis file)</b><br>
-                <a href="{file1}" download style="color:blue; text-decoration:none;" onClick="show_file_content('{file1}')">Download</a>
-            </div>
-            ''',
-            unsafe_allow_html=True
-        )
+        # with open(file1, "rb") as f:
+        #     file_bytes = f.read()
+        with st.container():
+            st.markdown(
+                """
+                <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: 50px;">
+                    <b>Creep experiment input file (.lis file)</b><br>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+            # st.download_button(
+            #     label="Download File",
+            #     data=file_bytes,
+            #     file_name="file1",
+            #     mime="application/octet-stream"
+            # )
 
     with col2:
         st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -40px;">↓</div>', unsafe_allow_html=True)  # Down arrow
@@ -107,7 +116,6 @@ def data_generation_page():
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px; margin-top: 50px;">
                 <b>Populated metadata schema</b><br>
-                <a href="{file2}" download style="color:blue; text-decoration:none;">Download</a>
             </div>
             ''',
             unsafe_allow_html=True
@@ -121,8 +129,6 @@ def data_generation_page():
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: 50px;">
                 <b>Populated Data Graph</b><br>
-                <a href="{file3a}" download style="color:blue; text-decoration:none;">Data Graph</a><br>
-                <a href="{file3b}" download style="color:blue; text-decoration:none;">Shape Graph</a>
             </div>
             ''',
             unsafe_allow_html=True
@@ -171,18 +177,23 @@ def data_generation_page():
     # Reverse lookup: Find the actual filename
     file_to_edit = next((key for key, value in file_options.items() if value == selected_label), None)
 
-    if file_to_edit:
-        if "selected_file" not in st.session_state:
-            st.session_state.selected_file = None
+    if "selected_file" not in st.session_state:
+        st.session_state.selected_file = None
 
-        if st.button("Load File"):
-            st.session_state.selected_file = file_to_edit
+    if st.button("Load File"):
+        st.session_state.selected_file = file_to_edit
 
-        if st.session_state.selected_file == file_to_edit:
-            file_content = read_file(file_to_edit)
-            edited_content = st.text_area("Edit File Content", value=file_content, height=300)
+    if st.session_state.selected_file == file_to_edit:
+        file_content = read_file(file_to_edit)
+        edited_content = st.text_area("Edit File Content", value=file_content, height=400)
 
-            if st.button("Save Changes"):
-                write_file(file_to_edit, edited_content)
-                st.success(f"File '{file_options[file_to_edit]}' has been updated.")
+        # st.button("Download Edited File"):
+        # # Convert the edited content to bytes for download
+        edited_file_bytes = edited_content.encode("latin-1")
 
+        st.download_button(
+            label="Download Edited File",
+            data=edited_file_bytes,
+            file_name=selected_label,
+            mime="application/octet-stream"
+        )
