@@ -207,6 +207,20 @@ def data_generation_page():
         "2024-09_Schema_IUC02_v1.json": "Metadata Schema"
     }
 
+
+    st.markdown(
+    """
+    <style>
+    .streamlit-expanderHeader {
+        font-size: 14px;
+    }
+    div[data-baseweb="select"] {
+        width: 400px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+    )
     # Dropdown to select a file (show friendly names)
     selected_label = st.selectbox("Choose a file:", list(file_options.values()))
 
