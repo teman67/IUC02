@@ -159,7 +159,24 @@ def data_generation_page():
     #         st.success(f"File '{file_to_edit}' has been updated.")
 
     # File selection & editing
-    st.markdown("### Edit a File")
+    st.markdown(
+    """
+    <style>
+    .custom-header {
+        font-size: 30px;
+        
+        font-weight: bold;
+        
+        margin-top: 50px;
+        padding: 0px;
+        
+        
+    }
+    </style>
+    <div class="custom-header">Show and Edit Files</div>
+    """,
+    unsafe_allow_html=True
+    )
 
     # Mapping file names to user-friendly labels
     file_options = {
