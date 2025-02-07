@@ -26,12 +26,17 @@ def get_example_file(file_path):
     
 def read_file(file_path):
     """Safely read the file with multiple encoding attempts."""
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            return f.read()
-    except UnicodeDecodeError:
-        with open(file_path, "r", encoding="latin-1") as f:  # Alternative encoding
-            return f.read()
+    encodings_to_try = ['utf-8', 'latin-1', 'ISO-8859-1']
+    
+    for encoding in encodings_to_try:
+        try:
+            with open(file_path, "r", encoding=encoding) as f:
+                return f.read()
+        except UnicodeDecodeError:
+            continue  # Try the next encoding
+    
+    # If all attempts fail, raise an error
+    raise UnicodeDecodeError(f"Failed to decode {file_path} with all attempted encodings.")
 
 def data_generation_page():
     # Set the page background image
