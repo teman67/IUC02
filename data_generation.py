@@ -132,7 +132,7 @@ def data_generation_page():
             # )
 
     with col2:
-        st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -120px;">↓</div>', unsafe_allow_html=True)  # Down arrow
+        st.markdown('<div style="text-align:center; font-size:40px; font-weight:bold; margin-top: -100px;">↓</div>', unsafe_allow_html=True)  # Down arrow
         st.markdown('<div style="text-align:center; font-size:40px; margin-top: -50px; font-weight:bold; ">→</div>', unsafe_allow_html=True)  # Right arrow
 
     with col3:
