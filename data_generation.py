@@ -26,7 +26,7 @@ def get_example_file(file_path):
     
 def read_file(file_path):
     """Safely read the file with multiple encoding attempts."""
-    encodings_to_try = ['utf-8', 'latin-1', 'ISO-8859-1']
+    encodings_to_try = [ 'ISO-8859-1']
     
     for encoding in encodings_to_try:
         try:
