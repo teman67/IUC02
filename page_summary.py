@@ -3,6 +3,33 @@ import streamlit.components.v1 as components
 import base64
 import os
 
+
+import time
+
+# Function to check if the warning message has been shown
+def check_warning_message_state():
+    '''
+    Checks if the warning message has been shown.
+    '''
+
+    if 'warning_shown' not in st.session_state:
+        st.session_state.warning_shown = False
+
+# Function to show the warning message
+def show_warning_message():
+    '''
+    Displays the warning message recommending light mode over dark mode.
+    '''
+
+    if not st.session_state.warning_shown:
+        placeholder = st.empty()
+        placeholder.markdown('<div style="background-color: #FFEEEB; padding: 30px; margin-top: 40px; border-radius: 5px; text-align: center;"><p style="font-size: 20px; color: #333333"><strong>For better visualization, it is recommended to use Light mode instead of Dark mode in Settings (top right).</strong></p></div>', unsafe_allow_html=True)
+        st.session_state.warning_shown = True
+
+        time.sleep(5)  # Wait for 5 seconds
+        placeholder.empty()
+
+
 def get_base64_encoded_image(image_path):
     """Convert image to Base64."""
     with open(image_path, "rb") as img_file:
@@ -20,7 +47,6 @@ else:
 
 def page_summary_body():
     # Set the page background image
-    # Set background
     page_bg_img = f'''
         <style>
         [data-testid="stApp"] {{
@@ -34,6 +60,14 @@ def page_summary_body():
         </style>
         '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
+    '''
+    Displays the page summary body including project details and a warning message.
+    '''
+
+    check_warning_message_state()
+    show_warning_message()
+
 
     st.markdown('''
     <h3 style="color: black; text-align: left; margin-bottom: 0px">
@@ -72,7 +106,7 @@ def page_summary_body():
         ]),
         ("Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example", []),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
-        ("Fair Data Object (FDO)", "https://kit-data-manager.github.io/fairdoscope/", []),
+        ("Fair Digital Objects (FDO)", "https://kit-data-manager.github.io/fairdoscope/", []),
     ]
 
     # Generate workflow as horizontal boxes
