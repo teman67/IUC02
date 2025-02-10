@@ -32,6 +32,18 @@ def about_us_page():
             background-repeat: no-repeat;
             background-attachment: fixed;
         }}
+        .zoom-hover {{
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }}
+
+        .zoom-hover:hover {{
+            transform: scale(1.1);
+        }}
+
+        .separator {{
+            margin: 0 10px;  /* Adjust space around the separator */
+        }}
         </style>
         '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
@@ -42,14 +54,16 @@ def about_us_page():
     
     # Example of adding team members, their affiliations, and external links
     team_members = [
-        {"name": "Angelika Gedsun", "affiliation": "IMTEK, Albert-Ludwigs-Universität Freiburg ", "link": "https://livmats.uni-freiburg.de/de/people/postdoctoral-researchers/angelika-gedsun"},
-        {"name": "Yusra Shakeel", "affiliation": "Fakultät für Informatik, University Magdeburg", "link": "https://www.dbse.ovgu.de/en/Staff/Externe+Doktoranden/Yusra+Shakeel.html"},
-        {"name": "Mariano Forti", "affiliation": "ICAMS, Ruhr university Bochum", "link": "https://www.mpie.de/4917874/Forti"},
-        {"name": "Ying Han", "affiliation": "none", "link": "none"},
-        {"name": "Luis Alexander Ávila", "affiliation": "Federal Institute for Materials Research and Testing (BAM), Berlin", "link": "https://www.researchgate.net/profile/Luis-Alexander-Avila/publications"},
-        {"name": "Pavlina Kruzikova", "affiliation": "none", "link": "none"},
-        {"name": "Amirhossein Bayani", "affiliation": "Livmats, Albert-Ludwigs-Universität Freiburg", "link": "https://www.linkedin.com/in/amirhosseinbayani/"}
+        {"name": "Angelika Gedsun", "affiliation": "Albert-Ludwigs-Universität Freiburg, Freiburg im Breisgau, Baden-Württemberg, Germany", "link": "https://livmats.uni-freiburg.de/de/people/postdoctoral-researchers/angelika-gedsun"},
+        {"name": "Ebrahim Norouzi", "affiliation": "FIZ Karlsruhe – Leibniz-Institute for Information Infrastructure GmbH,Kalrsruhe, Baden-Württemberg ,Germany", "link": "https://www.fiz-karlsruhe.de/de/bereiche/lebenslauf-und-publikationen-ebrahim-norouzi"},
+        {"name": "Yusra Shakeel", "affiliation": "KarlsruheInstitute of Technology, Kalrsruhe, Baden-Württemberg ,Germany", "link": "https://www.dbse.ovgu.de/en/Staff/Externe+Doktoranden/Yusra+Shakeel.html"},
+        {"name": "Mariano Forti", "affiliation": "Ruhr-Universität Bochum, Bochum, Nordrhein-Westfalen, Germany", "link": "https://www.mpie.de/4917874/Forti"},
+        {"name": "Ying Han", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.xing.com/profile/Ying_Han6"},
+        {"name": "Luis Alexander Ávila Calderón ", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.researchgate.net/profile/Luis-Alexander-Avila/publications"},
+         {"name": "Amirreza Daei Rezaei Moghaddam", "affiliation": "RWTH Aachen, Aachen, Nordrhein-Westfalen, Germany ", "link": "https://www.itc.rwth-aachen.de/cms/it-center/it-center/profil/team/~epvp/mitarbeiter-campus-/?gguid=PER-964N3TN&allou=1&lidx=1"},
+        {"name": "Pavlina Kruzikova", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.linkedin.com/in/pavlina-kruzikova/?originalSubdomain=de"},
+        {"name": "Amirhossein Bayani", "affiliation": "Albert-Ludwigs-Universität Freiburg, Freiburg im Breisgau, Baden-Württemberg, Germany", "link": "https://www.linkedin.com/in/amirhosseinbayani/"}
     ]
     
     for member in team_members:
-        st.markdown(f"[**{member['name']}**]( {member['link']} ) - {member['affiliation']}")
+        st.markdown(f'<a class="zoom-hover" href="{member["link"]}" target="_blank"><b>{member["name"]}</b></a><span class="separator"> - </span>{member["affiliation"]}', unsafe_allow_html=True)
