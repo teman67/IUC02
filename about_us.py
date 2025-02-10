@@ -1,10 +1,6 @@
 import streamlit as st
-import pyshacl
-from pyshacl import validate
-from rdflib import Graph
 import base64
 import os
-
 
 def get_base64_encoded_image(image_path):
     """Convert image to Base64."""
@@ -32,26 +28,28 @@ def about_us_page():
             background-repeat: no-repeat;
             background-attachment: fixed;
         }}
-        .zoom-hover {{
-            transition: transform 0.3s ease;
-            display: inline-block;
+        .logo-container {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
         }}
-
-        .zoom-hover:hover {{
+        .logo-container img {{
+            height: 70px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }}
+        .logo-container img:hover {{
             transform: scale(1.1);
         }}
-
-        .separator {{
-            margin: 0 10px;  /* Adjust space around the separator */
-        }}
         </style>
-        '''
+    '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
-    
-    # Add a section for team members and affiliations
-    # st.header("About Us")
+     
+    # Team Members Section
     st.subheader("Team Members:")
-    
     # Example of adding team members, their affiliations, and external links
     team_members = [
         {"name": "Mariano Forti", "affiliation": "Ruhr-Universität Bochum, Bochum, Nordrhein-Westfalen, Germany", "link": "https://www.mpie.de/4917874/Forti"},
@@ -60,10 +58,26 @@ def about_us_page():
         {"name": "Ebrahim Norouzi", "affiliation": "FIZ Karlsruhe – Leibniz-Institute for Information Infrastructure GmbH, Kalrsruhe, Baden-Württemberg, Germany", "link": "https://www.fiz-karlsruhe.de/de/bereiche/lebenslauf-und-publikationen-ebrahim-norouzi"},
         {"name": "Ying Han", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.xing.com/profile/Ying_Han6"},
         {"name": "Luis Alexander Ávila Calderón ", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.researchgate.net/profile/Luis-Alexander-Avila/publications"},
-         {"name": "Amirreza Daei Rezaei Moghaddam", "affiliation": "RWTH Aachen, Aachen, Nordrhein-Westfalen, Germany ", "link": "https://www.itc.rwth-aachen.de/cms/it-center/it-center/profil/team/~epvp/mitarbeiter-campus-/?gguid=PER-964N3TN&allou=1&lidx=1"},
+        {"name": "Amirreza Daei Rezaei Moghaddam", "affiliation": "RWTH Aachen, Aachen, Nordrhein-Westfalen, Germany ", "link": "https://www.itc.rwth-aachen.de/cms/it-center/it-center/profil/team/~epvp/mitarbeiter-campus-/?gguid=PER-964N3TN&allou=1&lidx=1"},
         {"name": "Pavlina Kruzikova", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.linkedin.com/in/pavlina-kruzikova/?originalSubdomain=de"},
         {"name": "Amirhossein Bayani", "affiliation": "Albert-Ludwigs-Universität Freiburg, Freiburg im Breisgau, Baden-Württemberg, Germany", "link": "https://www.linkedin.com/in/amirhosseinbayani/"}
     ]
     
     for member in team_members:
         st.markdown(f'<a class="zoom-hover" href="{member["link"]}" target="_blank"><b>{member["name"]}</b></a><span class="separator"> - </span>{member["affiliation"]}', unsafe_allow_html=True)
+
+    # Display additional logos
+    logo_dir = os.path.join(current_dir, "./images/")
+    logo_files = ["BAM_logo.png", "FIZ_logo.png", "Freiburg_logo.png", "KIT_logo.png", "RUB_logo.png", "RWTH_logo.png"]
+    
+    logo_html = '<div class="logo-container">'
+    for logo in logo_files:
+        logo_path = os.path.join(logo_dir, logo)
+        if os.path.exists(logo_path):
+            base64_logo = get_base64_encoded_image(logo_path)
+            logo_html += f'<img src="data:image/png;base64,{base64_logo}" alt="{logo}" />'
+        else:
+            st.error(f"Logo not found: {logo_path}")
+    logo_html += '</div>'
+    
+    st.markdown(logo_html, unsafe_allow_html=True)
