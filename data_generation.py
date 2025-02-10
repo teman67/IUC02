@@ -97,7 +97,7 @@ def data_generation_page():
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; 
                         background-color:#90CAF9; border-radius:10px; color:black; 
-                        min-width:50px;  max-width: 200px; margin-bottom: 20px; margin-top: -30px;
+                        min-width:50px;  margin-bottom: 0px; margin-top: -30px;
                         ">  
                 <b>Shape Graph</b><br>
             </div>
@@ -151,7 +151,7 @@ def data_generation_page():
     with col5:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: -30px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: 10px;">
                 <b>Populated Data Graph</b><br>
             </div>
             ''',
