@@ -72,8 +72,8 @@ def data_validation_page():
     ''', unsafe_allow_html=True)
 
     # Example file paths
-    example_rdf_path = "rdfGraph_smallExample.ttl"  # Path to your example RDF file
-    example_shacl_path = "shaclShape_smallExample.ttl"  # Path to your example SHACL file
+    example_rdf_path = "./data/rdfGraph_smallExample.ttl"  
+    example_shacl_path = "./data/shaclShape_smallExample.ttl"  
 
     st.markdown('<div class="section-box">', unsafe_allow_html=True)
     col1, col2 = st.columns([1, 1])

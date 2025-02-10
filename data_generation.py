@@ -61,12 +61,12 @@ def data_generation_page():
     ''', unsafe_allow_html=True)
 
     # File URLs (Replace these with actual URLs or paths)
-    file1 = "Vh5205_C-95.LIS"  # File for Step 1
-    file2 = "Vh5205_C-95_translated.json"  # File for Step 2
-    file3a = "rdfGraph_smallExample.ttl"  # First file for Step 3
-    file3b = "shaclShape_smallExample.ttl"  # Second file for Step 3
-    ext_file1 = "mapping document.json"  # First file for Extra Step
-    ext_file2 = "2024-09_Schema_IUC02_v1.json"  # Second file for Extra Step
+    file1 = "./data/Vh5205_C-95.LIS"  # File for Step 1
+    file2 = "./data/Vh5205_C-95_translated.json"  # File for Step 2
+    file3a = "./data/rdfGraph_smallExample.ttl"  # First file for Step 3
+    file3b = "./data/shaclShape_smallExample.ttl"  # Second file for Step 3
+    ext_file1 = "./data/mapping document.json"  # First file for Extra Step
+    ext_file2 = "./data/2024-09_Schema_IUC02_v1.json"  # Second file for Extra Step
 
     # First row for extra box above the first arrow
     col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 2, 1, 2, 1, 2])
@@ -204,12 +204,12 @@ def data_generation_page():
 
     # Mapping file names to user-friendly labels
     file_options = {
-        "Vh5205_C-95.LIS": "Creep Experiment Input File",
-        "Vh5205_C-95_translated.json": "Populated Metadata Schema",
-        "rdfGraph_smallExample.ttl": "Populated Data Graph",
-        "shaclShape_smallExample.ttl": "Shape Graph",
-        "mapping document.json": "Mapping Document",
-        "2024-09_Schema_IUC02_v1.json": "Metadata Schema"
+        "./data/Vh5205_C-95.LIS": "Creep Experiment Input File",
+        "./data/Vh5205_C-95_translated.json": "Populated Metadata Schema",
+        "./data/rdfGraph_smallExample.ttl": "Populated Data Graph",
+        "./data/shaclShape_smallExample.ttl": "Shape Graph",
+        "./data/mapping document.json": "Mapping Document",
+        "./data/2024-09_Schema_IUC02_v1.json": "Metadata Schema"
     }
 
     st.markdown(
