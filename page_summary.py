@@ -93,16 +93,16 @@ def page_summary_body():
     st.markdown(description_text, unsafe_allow_html=True)
 
     # Define workflow steps
-    # Define workflow steps
+    
     steps = [
-        ("Data Generation", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", []),
+        ("Data Generation", "", []),
         ("Semantic Resources and Metadata Schema", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", [
             "Json Metadata Schema",
             "Reference Data Set (for creep data)",
             "RDO(C)",
             "SCHACL Shape",
         ]),
-        ("Data Validation", "https://ulb-darmstadt.github.io/shacl-form/#example", []),
+        ("Data Validation", "", []),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
         ("Fair Digital Objects (FDO)", "https://kit-data-manager.github.io/fairdoscope/?pid=21.11152/253e0f2a-4d4a-4916-a45a-ef7cd8ad1f9b", []),
     ]
