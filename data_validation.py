@@ -24,7 +24,6 @@ def get_example_file(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
 
-
 def data_validation_page():
     # Set the page background image
     page_bg_img = f'''
@@ -37,8 +36,15 @@ def data_validation_page():
             background-repeat: no-repeat;
             background-attachment: fixed;
         }}
+        .section-box {{
+            border: 1px solid #05445e;
+            padding: 1px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background-color: #05445e;
+        }}
         </style>
-        '''
+    '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
     
     st.markdown("""
@@ -69,7 +75,7 @@ def data_validation_page():
     example_rdf_path = "rdfGraph_smallExample.ttl"  # Path to your example RDF file
     example_shacl_path = "shaclShape_smallExample.ttl"  # Path to your example SHACL file
 
-    # Create columns for file upload and download buttons
+    st.markdown('<div class="section-box">', unsafe_allow_html=True)
     col1, col2 = st.columns([1, 1])
 
     with col1:
@@ -90,14 +96,16 @@ def data_validation_page():
         # Text area to edit RDF file content
         if rdf_content:
             rdf_content = st.text_area("Edit Data Graph", rdf_content, height=300)
-            if st.button("Submit Data Graph"):
+            if st.button("Submit Edited Data Graph"):
                 st.success("Data Graph submitted successfully!")
 
     with col2:
         with open(example_rdf_path, "r") as f:
             rdf_example = f.read()
         st.download_button("Download Example Data Graph", rdf_example, "example_data.ttl", "application/x-turtle")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="section-box">', unsafe_allow_html=True)
     col3, col4 = st.columns([1, 1])
 
     with col3:
@@ -118,14 +126,16 @@ def data_validation_page():
         # Text area to edit SHACL file content
         if shacl_content:
             shacl_content = st.text_area("Edit Shape Graph", shacl_content, height=300)
-            if st.button("Submit Shape Graph"):
+            if st.button("Submit Edited Shape Graph"):
                 st.success("Shape Graph submitted successfully!")
 
     with col4:
         with open(example_shacl_path, "r") as f:
             shacl_example = f.read()
         st.download_button("Download Example Shape Graph", shacl_example, "example_shacl.ttl", "application/x-turtle")
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="section-box">', unsafe_allow_html=True)
     # Button to validate the files
     if st.button("Validate Data Against SHACL"):
         if rdf_content and shacl_content:
