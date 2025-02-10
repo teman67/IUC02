@@ -56,8 +56,8 @@ def about_us_page():
     team_members = [
         {"name": "Mariano Forti", "affiliation": "Ruhr-Universität Bochum, Bochum, Nordrhein-Westfalen, Germany", "link": "https://www.mpie.de/4917874/Forti"},
         {"name": "Angelika Gedsun", "affiliation": "Albert-Ludwigs-Universität Freiburg, Freiburg im Breisgau, Baden-Württemberg, Germany", "link": "https://livmats.uni-freiburg.de/de/people/postdoctoral-researchers/angelika-gedsun"},
-        {"name": "Yusra Shakeel", "affiliation": "KarlsruheInstitute of Technology, Kalrsruhe, Baden-Württemberg ,Germany", "link": "https://www.dbse.ovgu.de/en/Staff/Externe+Doktoranden/Yusra+Shakeel.html"},
-        {"name": "Ebrahim Norouzi", "affiliation": "FIZ Karlsruhe – Leibniz-Institute for Information Infrastructure GmbH,Kalrsruhe, Baden-Württemberg ,Germany", "link": "https://www.fiz-karlsruhe.de/de/bereiche/lebenslauf-und-publikationen-ebrahim-norouzi"},
+        {"name": "Yusra Shakeel", "affiliation": "KarlsruheInstitute of Technology, Kalrsruhe, Baden-Württemberg, Germany", "link": "https://www.dbse.ovgu.de/en/Staff/Externe+Doktoranden/Yusra+Shakeel.html"},
+        {"name": "Ebrahim Norouzi", "affiliation": "FIZ Karlsruhe – Leibniz-Institute for Information Infrastructure GmbH, Kalrsruhe, Baden-Württemberg, Germany", "link": "https://www.fiz-karlsruhe.de/de/bereiche/lebenslauf-und-publikationen-ebrahim-norouzi"},
         {"name": "Ying Han", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.xing.com/profile/Ying_Han6"},
         {"name": "Luis Alexander Ávila Calderón ", "affiliation": "Bundesanstalt für Materialforschungund-prüfung(BAM), Berlin, Germany", "link": "https://www.researchgate.net/profile/Luis-Alexander-Avila/publications"},
          {"name": "Amirreza Daei Rezaei Moghaddam", "affiliation": "RWTH Aachen, Aachen, Nordrhein-Westfalen, Germany ", "link": "https://www.itc.rwth-aachen.de/cms/it-center/it-center/profil/team/~epvp/mitarbeiter-campus-/?gguid=PER-964N3TN&allou=1&lidx=1"},
