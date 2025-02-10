@@ -80,12 +80,17 @@ def page_summary_body():
     # Add descriptive text above the workflow
     description_text = '''
     <p style="text-align: justify; font-size: 18px; color: black; margin: auto;">
-    The aim of this IUC is to develop a framework for reference material data sets using creep properties of single crystal Ni-based superalloy as example. 
-    Such reference data sets are necessary for (i) evaluating and validating experimental/modeling methods and their uncertainties, 
-    (ii) assessing the performance of analysis, modelling and simulation tools by use of standardized processes and 
-    (iii) providing comprehensive material descriptions (e.g., meta-data schemas and ontologies). 
-    Community-driven processes will be established for the definition, identification and curation of reference material data sets, including metadata, raw data and processed data, and quality assessment routines. 
-    Reference data set will contain detailed meta-data and context concerning materials history, data collection (e.g., testing and measurement equipment, calibration status/certificate) 
+    The aim of this IUC is to <strong> develop a framework for reference material data sets </strong> using creep properties of single crystal Ni-based superalloy as example. 
+    Such reference data sets are necessary for 
+    <br>
+    (i) <strong>evaluating and validating</strong> experimental/modeling methods and their uncertainties, 
+     <br>
+    (ii) <strong>assessing the performance</strong> of analysis, modelling and simulation tools by use of standardized processes and 
+     <br>
+    (iii) <strong>providing comprehensive material descriptions</strong> (e.g., meta-data schemas and ontologies). 
+     <br>
+    Community-driven processes will be established for the <strong>definition, identification and curation of reference material data sets</strong>, including metadata, raw data and processed data, and quality assessment routines. 
+    Reference data set will contain <strong>detailed meta-data and context concerning materials history, data collection</strong> (e.g., testing and measurement equipment, calibration status/certificate) 
     and the related specific uncertainty/error (measurement, model, simulation). Existing data on Ni-base superalloys from PP18 BAM and PP01 SFB/TR103 will be used, 
     where superalloys have been well characterized using a broad spectrum of characterization methods and in-depth data is available.
     </p>
@@ -93,14 +98,19 @@ def page_summary_body():
     st.markdown(description_text, unsafe_allow_html=True)
 
     # Define workflow steps
+
+#link_generation=st.page_link("data_generation.py", label="Data Generation")
+#link_validation=st.page_link("pages/data_validation.py", label="Data Validation")
+
+
     
     steps = [
         ("Data Generation", "", []),
-        ("Semantic Resources and Metadata Schema", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", [
+        ("Semantic Resources", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", [
             "Json Metadata Schema",
-            "Reference Data Set (for creep data)",
-            "RDO(C)",
-            "SCHACL Shape",
+            "Reference Dataset Ontology (RDO)",
+            "Application-level extension for reference data on creep testing (RDOC)",
+            "SCHACL Shapes",
         ]),
         ("Data Validation", "", []),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
