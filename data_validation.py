@@ -40,6 +40,7 @@ def data_validation_page():
         </style>
         '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
+    
     st.markdown("""
         <style>
             div[data-testid="stFileUploader"] {
@@ -71,7 +72,6 @@ def data_validation_page():
     # Create columns for file upload and download buttons
     col1, col2 = st.columns([1, 1])
 
-    # RDF Upload and Download
     with col1:
         rdf_file_option = st.radio(
             "Select Data Graph file:",
@@ -79,19 +79,25 @@ def data_validation_page():
             index=0
         )
 
+        rdf_content = None
         if rdf_file_option == "Upload Your Own":
             rdf_file = st.file_uploader("Upload Data Graph (Turtle format)", type=["ttl"])
+            if rdf_file:
+                rdf_content = rdf_file.read().decode("utf-8")  # Read content
         else:
-            # Use example RDF file
             rdf_content = get_example_file(example_rdf_path)
-            rdf_file = rdf_content
+
+        # Text area to edit RDF file content
+        if rdf_content:
+            rdf_content = st.text_area("Edit Data Graph", rdf_content, height=300)
+            if st.button("Submit Data Graph"):
+                st.success("Data Graph submitted successfully!")
 
     with col2:
         with open(example_rdf_path, "r") as f:
             rdf_example = f.read()
         st.download_button("Download Example Data Graph", rdf_example, "example_data.ttl", "application/x-turtle")
 
-    # SHACL Upload and Download
     col3, col4 = st.columns([1, 1])
 
     with col3:
@@ -101,81 +107,73 @@ def data_validation_page():
             index=0
         )
 
+        shacl_content = None
         if shacl_file_option == "Upload Your Own":
             shacl_file = st.file_uploader("Upload Shape Graph (Turtle format)", type=["ttl"])
+            if shacl_file:
+                shacl_content = shacl_file.read().decode("utf-8")  # Read content
         else:
-            # Use example SHACL file
             shacl_content = get_example_file(example_shacl_path)
-            shacl_file = shacl_content
+
+        # Text area to edit SHACL file content
+        if shacl_content:
+            shacl_content = st.text_area("Edit Shape Graph", shacl_content, height=300)
+            if st.button("Submit Shape Graph"):
+                st.success("Shape Graph submitted successfully!")
 
     with col4:
         with open(example_shacl_path, "r") as f:
             shacl_example = f.read()
         st.download_button("Download Example Shape Graph", shacl_example, "example_shacl.ttl", "application/x-turtle")
 
-    # Process files
-    if rdf_file and shacl_file:
-        try:
-            # Load RDF file content (either uploaded or example)
-            g = Graph()
+    # Button to validate the files
+    if st.button("Validate Data Against SHACL"):
+        if rdf_content and shacl_content:
+            try:
+                # Load RDF file content
+                g = Graph()
+                g.parse(data=rdf_content, format="turtle")
+                st.success("RDF file is valid!")
 
-            # Check if file is an instance of UploadedFile and read the content as bytes
-            if isinstance(rdf_file, bytes):
-                g.parse(data=rdf_file, format="turtle")
-            elif isinstance(rdf_file, st.runtime.uploaded_file_manager.UploadedFile):
-                rdf_bytes = rdf_file.read()  # Read file content as bytes
-                g.parse(data=rdf_bytes, format="turtle")
-            else:
-                g.parse(data=rdf_file, format="turtle")
-                
-            st.success("RDF file is valid!")
+                json_ld_data = g.serialize(format="json-ld", indent=4)
+                st.download_button("Download JSON-LD", json_ld_data, "dataGraph.jsonld", "application/json")
 
-            # Convert RDF to JSON-LD
-            json_ld_data = g.serialize(format="json-ld", indent=4)
-            st.download_button("Download JSON-LD", json_ld_data, "dataGraph.jsonld", "application/json")
+                # Load SHACL file content
+                shacl_shape = Graph()
+                shacl_shape.parse(data=shacl_content, format="turtle")
 
-            # Load SHACL file content (either uploaded or example)
-            shacl_shape = Graph()
-            if isinstance(shacl_file, bytes):
-                shacl_shape.parse(data=shacl_file, format="turtle")
-            elif isinstance(shacl_file, st.runtime.uploaded_file_manager.UploadedFile):
-                shacl_bytes = shacl_file.read()  # Read file content as bytes
-                shacl_shape.parse(data=shacl_bytes, format="turtle")
-            else:
-                shacl_shape.parse(data=shacl_file, format="turtle")
+                # Validate RDF against SHACL
+                results = validate(
+                    g,
+                    shacl_graph=shacl_shape,
+                    inference='rdfs',
+                    data_graph_format="turtle",
+                    shacl_graph_format="turtle",
+                    abort_on_first=False,
+                    allow_infos=False,
+                    allow_warnings=False,
+                    meta_shacl=False,
+                    advanced=False,
+                    js=False,
+                    debug=True,
+                    serialize_report_graph="ttl"
+                )
+                conforms, report_graph, report_text = results
 
-            # Validate RDF against SHACL
-            results = validate(
-                g,
-                shacl_graph=shacl_shape,
-                inference='rdfs',
-                data_graph_format="json-ld",
-                shacl_graph_format="ttl",
-                abort_on_first=False,
-                allow_infos=False,
-                allow_warnings=False,
-                meta_shacl=False,
-                advanced=False,
-                js=False,
-                debug=True,
-                serialize_report_graph="ttl"
-            )
-            conforms, report_graph, report_text = results
+                st.write("**Validation Result:**")
+                st.warning(f"Conforms: {conforms}")
+                st.text_area("SHACL Report", report_text, height=300)
 
-            st.write("**Validation Result:**")
-            st.warning(f"Conforms: {conforms}")
-            st.text_area("SHACL Report", report_text, height=300)
+                report_g = Graph()
+                report_g.parse(data=report_graph, format="turtle", encoding="utf-8")
 
-            report_g = Graph()
-            report_g.parse(data=report_graph, format="ttl", encoding="utf-8")
+                st.write("## Detailed SHACL Report")
+                st.write("Below is a structured view of the SHACL validation report:")
 
-            st.write("## Detailed SHACL Report")
-            st.write("Below is a structured view of the SHACL validation report:")
+                for s, p, o in sorted(report_g):
+                    st.markdown(f"- **Subject:** `{s}`\n  - **Predicate:** `{p}`\n  - **Object:** `{o}`")
 
-            for s, p, o in sorted(report_g):
-                st.markdown(f"- **Subject:** `{s}`\n  - **Predicate:** `{p}`\n  - **Object:** `{o}`")
-
-        except Exception as e:
-            st.error(f"Error processing files: {e}")
-
-
+            except Exception as e:
+                st.error(f"Error processing files: {e}")
+        else:
+            st.warning("Please upload or select example files before validation.")
