@@ -1,0 +1,115 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <http://example.org/> .
+
+### Classes
+
+
+:TestJob a owl:Class.
+
+:TestedMaterial a owl:Class ;
+    rdfs:subClassOf :Material .
+
+:Material a owl:Class .
+:TestingParameter a owl:Class .
+
+:SpecifiedTemperature a owl:Class .
+
+:TypeOfLoading a owl:Class ;
+    rdfs:subClassOf :TestingParameter .
+
+:InitialStress a owl:Class ;
+    rdfs:subClassOf :TestingParameter .
+
+:TestStandard a owl:Class.
+
+:DescriptionOfManufacturingProcess  a owl:Class.
+
+:Quality a owl:Class .
+
+### DataType Properties
+
+:dateOfTestStart a owl:DatatypeProperty ;
+    rdfs:domain :TestJob ;
+    rdfs:range xsd:dateTime.
+
+   
+:dateOfTestEnd a owl:DatatypeProperty ;
+    rdfs:domain :TestJob ;
+    rdfs:range xsd:dateTime .
+
+:testID a owl:DatatypeProperty ;
+    rdfs:domain :TestJob ;
+    rdfs:range xsd:string.
+
+:testStandardApplied a owl:DatatypeProperty ;
+    rdfs:domain :TestStandard ;
+    rdfs:range xsd:boolean.
+
+:testStandard a owl:DatatypeProperty ;
+    rdfs:domain :TestStandard ;
+    rdfs:range xsd:string.
+
+:hasUnit a owl:DatatypeProperty ;
+    rdfs:domain :Quality;
+    rdfs:range xsd:string.
+   
+
+:hasSpecifiedNumericValue a owl:DatatypeProperty ;
+    rdfs:domain :Quality ;
+    rdfs:range xsd:float .
+
+:hasDescription a owl:DatatypeProperty ;
+    rdfs:domain :DescriptionOfManufacturingProcess ;
+    rdfs:range xsd:string .
+
+:digitalMaterialIdentifier a owl:DatatypeProperty ;
+    rdfs:domain :TestedMaterial ;
+    rdfs:range xsd:string .
+
+
+
+### Object Properties
+
+:typeOfLoading a owl:ObjectProperty ;
+    rdfs:domain :TestJob ;
+     rdfs:range :TypeOfLoading .
+
+	
+### Individuals
+
+:TestStandard :testStandardApplied "true"^^xsd:boolean.
+:TestStandard :testStandard "DIN EN ISO 204:2019-4"^^xsd:string.
+		
+
+
+:InitialStress a :Quality;
+ :hasSpecifiedNumericValue "230"^^xsd:float;
+ :hasUnit "MPa"^^xsd:string.	
+
+:CMSX-6 a :TestedMaterial;
+    :digitalMaterialIdentifier "CMSX-6"^^xsd:string.
+
+:SpecifiedTemperature a :Quality;	
+        :hasSpecifiedNumericValue "980"^^xsd:float;
+        :hasUnit "°C"^^xsd:string.	
+
+:Compression a :TypeOfLoading .
+:Bending a :TypeOfLoading .
+:Tension a :TypeOfLoading .
+:TestJob :typeOfLoading :Tension .
+
+
+:DescriptionOfManufacturingProcess :hasDescription "Description of the manufacturing process - as-tested material. Single Crystal Investment Casting from a Vacuum Induction Refined Ingot and subsequent Heat Treatment (annealed and aged)."^^xsd:string.
+
+
+:TestJob :testID "Vh5205_C-78"^^xsd:string.
+
+
+:TestJob :dateOfTestStart "2023-08-02T09:06"^^xsd:dateTime.
+ 
