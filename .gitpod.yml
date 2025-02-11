@@ -6,6 +6,6 @@
 
 tasks:
   - init: pip install -r requirements.txt
-    command: python app.py
+    command: python IUC02_Demonstrator.py
 
 
