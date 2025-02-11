@@ -35,7 +35,7 @@ def get_base64_encoded_image(image_path):
 
 # Use absolute path
 current_dir = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(current_dir, "./images/Nfdi_Matwer_logo.png")
+image_path = os.path.join(current_dir, "images/Nfdi_Matwer_logo.png")
 
 if os.path.exists(image_path):
     base64_img = get_base64_encoded_image(image_path)
@@ -43,7 +43,8 @@ else:
     st.error(f"Image not found: {image_path}")
 
 
-def page_summary_body():
+def page_summary():
+    
     # Set the page background image
     page_bg_img = f'''
         <style>
@@ -59,12 +60,12 @@ def page_summary_body():
         '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-    '''
-    Displays the page summary body including project details and a warning message.
-    '''
+    # '''
+    # Displays the page summary body including project details and a warning message.
+    # '''
 
-    check_warning_message_state()
-    show_warning_message()
+    # check_warning_message_state()
+    # show_warning_message()
 
 
     st.markdown('''
@@ -99,20 +100,20 @@ def page_summary_body():
 
     # Define workflow steps
 
-#link_generation=st.page_link("data_generation.py", label="Data Generation")
-#link_validation=st.page_link("pages/data_validation.py", label="Data Validation")
+    # link_generation=st.page_link("pages/data_generation.py", label="Data Generation")
+    # link_validation=st.page_link("pages/data_validation.py", label="Data Validation")
 
 
     
     steps = [
-        ("Data Generation", "", []),
+        ("Data Generation", "Data_Generation", ""),
         ("Semantic Resources", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", [
             "Json Metadata Schema",
             "Reference Dataset Ontology (RDO)",
             "Application-level extension for reference data on creep testing (RDOC)",
             "SCHACL Shapes",
         ]),
-        ("Data Validation", "", []),
+        ("Data Validation", "Data_Validation", ""),
         ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
         ("Fair Digital Objects (FDO)", "https://kit-data-manager.github.io/fairdoscope/?pid=21.11152/253e0f2a-4d4a-4916-a45a-ef7cd8ad1f9b", []),
     ]
@@ -194,3 +195,6 @@ def page_summary_body():
 
     # Render the HTML component
     components.html(workflow_html, height=250)
+
+
+#page_summary()

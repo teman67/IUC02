@@ -12,7 +12,7 @@ def get_base64_encoded_image(image_path):
 
 # Use absolute path
 current_dir = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(current_dir, "./images/Nfdi_Matwer_logo.png")
+image_path = os.path.join(current_dir, "../images/Nfdi_Matwer_logo.png")
 
 if os.path.exists(image_path):
     base64_img = get_base64_encoded_image(image_path)
@@ -25,6 +25,7 @@ def get_example_file(file_path):
         return f.read()
 
 def data_validation_page():
+    st.set_page_config(layout="wide")
     # Set the page background image
     page_bg_img = f'''
         <style>
@@ -187,3 +188,6 @@ def data_validation_page():
                 st.error(f"Error processing files: {e}")
         else:
             st.warning("Please upload or select example files before validation.")
+
+
+data_validation_page()

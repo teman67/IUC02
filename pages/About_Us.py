@@ -9,7 +9,7 @@ def get_base64_encoded_image(image_path):
 
 # Use absolute path
 current_dir = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(current_dir, "./images/Nfdi_Matwer_logo.png")
+image_path = os.path.join(current_dir, "../images/Nfdi_Matwer_logo.png")
 
 if os.path.exists(image_path):
     base64_img = get_base64_encoded_image(image_path)
@@ -17,6 +17,7 @@ else:
     st.error(f"Image not found: {image_path}")
 
 def about_us_page():
+    st.set_page_config(layout="wide")
     # Set the page background image
     page_bg_img = f'''
         <style>
@@ -67,7 +68,7 @@ def about_us_page():
         st.markdown(f'<a class="zoom-hover" href="{member["link"]}" target="_blank"><b>{member["name"]}</b></a><span class="separator"> - </span>{member["affiliation"]}', unsafe_allow_html=True)
 
     # Display additional logos
-    logo_dir = os.path.join(current_dir, "./images/")
+    logo_dir = os.path.join(current_dir, "../images/")
     logo_files = ["BAM_logo.png", "FIZ_logo.png", "Freiburg_logo.png", "KIT_logo.png", "RUB_logo.png", "RWTH_logo.png"]
     
     logo_html = '<div class="logo-container">'
@@ -81,3 +82,6 @@ def about_us_page():
     logo_html += '</div>'
     
     st.markdown(logo_html, unsafe_allow_html=True)
+
+
+about_us_page()
