@@ -2,4 +2,4 @@
 base="light"
 primaryColor = "#1f77b4"
 backgroundColor = "#ffffff"
-secondary-background-color: "#f0f2f6"
+secondary-background-color = "#f0f2f6"
