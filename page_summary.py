@@ -64,8 +64,8 @@ def page_summary():
     # Displays the page summary body including project details and a warning message.
     # '''
 
-    # check_warning_message_state()
-    # show_warning_message()
+    check_warning_message_state()
+    show_warning_message()
 
 
     st.markdown('''
