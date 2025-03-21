@@ -26,6 +26,20 @@ def get_example_file(file_path):
 
 def data_validation_page():
     st.set_page_config(layout="wide")
+    st.markdown('''
+    ## Data Validation Workflow 
+
+    - In this Data Validation Workflow you can explore how the exemplary *Data Graph* (*populated with data from the Reference data on creep*) is the validated against predefined SHACL Shapes (requirements the data has to fulfil, e.g. mandatory fields are present, and follows a specific datatype).
+    
+    - For this step the SHACL Shapes needs to be predefined. (**Shape Graph**). 
+
+    - The output of the Validation Process is the Validation protocol, which reports the violations of the **SHACL constrains**.
+
+    - You can use your own *Data Graph* and *SHACL Shapes* in this **Data Validation Workflow**. 
+                
+    - The Script for the validation is running in the backend and can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02/-/blob/main/Demonstrator_App/pages/Data_Validation.py). 
+    ''', unsafe_allow_html=True)
+
     # Set the page background image
     page_bg_img = f'''
         <style>
@@ -60,17 +74,17 @@ def data_validation_page():
         </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('''
-    <h2 style=" text-align: left; margin-bottom: 5px">
-        SHACL Validator
-    </h2>
-    <h3 style=" text-align: left; margin-top: 0px; margin-bottom: 2px">
-        This page allows you to validate your data against a SHACL shape.
-    </h3>
-    <h4 style=" text-align: left; margin-top: 0px; margin-bottom: 20px">
-        Please upload your data and SHACL shape files below or use the example files.
-    </h4>
-    ''', unsafe_allow_html=True)
+    # st.markdown('''
+    # <h2 style=" text-align: left; margin-bottom: 5px">
+    #     SHACL Validator
+    # </h2>
+    # <h3 style=" text-align: left; margin-top: 0px; margin-bottom: 2px">
+    #     This page allows you to validate your data against a SHACL shape.
+    # </h3>
+    # <h4 style=" text-align: left; margin-top: 0px; margin-bottom: 20px">
+    #     Please upload your data and SHACL shape files below or use the example files.
+    # </h4>
+    # ''', unsafe_allow_html=True)
 
     # Example file paths
     example_rdf_path = "./data/rdfGraph_smallExample.ttl"  

@@ -82,11 +82,11 @@ def data_generation_page():
         '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-    st.markdown('''
-    <h3 style="color: black; text-align: left; margin-bottom: 50px">
-        From Data Generation to Data Validation
-    </h3>
-    ''', unsafe_allow_html=True)
+    # st.markdown('''
+    # <h3 style="color: black; text-align: left; margin-bottom: 50px">
+    #     From Data Generation to Data Validation
+    # </h3>
+    # ''', unsafe_allow_html=True)
 
     # File URLs (Replace these with actual URLs or paths)
     file1 = "./data/Vh5205_C-95.LIS"  # File for Step 1
