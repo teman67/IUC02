@@ -40,6 +40,33 @@ def read_file(file_path):
 
 def data_generation_page():
     st.set_page_config(layout="wide")
+    st.markdown('''
+    ## Data Generation Workflow
+
+    The **Data Generation Workflow** represents how you can prepare the resources needed to validate your Data Graph.
+
+    **Step 1:** Download your data from the repository. The demonstrator shows the *Creep Experiment Input File*, downloaded from [Zenodo](https://zenodo.org/records/13937987).
+
+    **Step 2:** Populate the JSON Metadata Schema with data from your Input file. This step requires:
+    - A **JSON Metadata Schema** 
+    - A **Mapping Document** to correctly parse the Input data.
+
+    The Metadata Schema can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02).
+
+    **Step 3:** Generate the **Populated Data Graph (RDF-Graph)** from the Populated Metadata Schema using Ontology entities. 
+    - This step requires an **Ontology**, which can be accessed in the same [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02).
+
+    **Step 4:** Validate the Data Graph against predefined **SHACL Shapes** to ensure:
+    - Mandatory fields are present.
+    - The data follows a specific datatype.
+
+    The SHACL Shapes can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02).
+
+    The **output of the Validation Process** is the **Validation Protocol**.
+
+    ''', unsafe_allow_html=True)
+
+
     # Set the page background image
     page_bg_img = f'''
         <style>
@@ -259,5 +286,14 @@ def data_generation_page():
             file_name=file_name_with_extension,
             mime="application/octet-stream"
         )
+
+    st.markdown('''
+    <br>
+    <p style="font-size: 20px;">
+        <strong>Next Step:</strong> Please continue with the <strong>Data Validation Workflow</strong> to see more details on the SHACL Shapes and the Protocol.
+    </p>
+''', unsafe_allow_html=True)
+
+
 
 data_generation_page()
