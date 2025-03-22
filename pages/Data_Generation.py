@@ -105,7 +105,7 @@ def data_generation_page():
             <div style="padding:20px; border:2px solid black; text-align:center; 
                         background-color:#05445e; border-radius:10px; color:white; 
                         font-size:18px; min-width:250px; 
-                        margin-left: -85px;">  
+                        margin-left: -85px; margin-bottom: -100px">  
                 <b>Mapping</b><br>
                 <li>Metadata Schema</li>
                 <li>Mapping Document</li>
@@ -123,11 +123,11 @@ def data_generation_page():
     with col5:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; 
-                        background-color:#90CAF9; border-radius:10px; color:black; 
+            <div style="padding:15px; border:2px solid black; text-align:center;
+                        background-color:#05445e; border-radius:10px; color:white; 
                         min-width:50px;  margin-bottom: 0px; margin-top: -30px;
                         ">  
-                <b>Shape Graph</b><br>
+                <b>Ontology (Graph)</b><br>
             </div>
             ''',
             unsafe_allow_html=True
@@ -135,6 +135,30 @@ def data_generation_page():
 
     # Add space to separate extra box from main flow
     st.markdown("<br>", unsafe_allow_html=True)
+
+    col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 2, 1, 2, 1, 2])
+
+    with col6:
+        st.markdown(
+            f'''
+            <div style="padding:15px; border:2px solid black; text-align:center; 
+                        background-color:#05445e; border-radius:10px; color:white; 
+                        min-width:160px;  margin-bottom: 40px; margin-top: -30px; margin-left:-30px
+                        ">  
+                <b>SHACL Shapes </b><br>
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+    # Add space to separate extra box from main flow
+    st.markdown("<br>", unsafe_allow_html=True)
+    with col5:
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: -15px; font-weight:bold; ">↓</div>', unsafe_allow_html=True)
+
+    with col6:
+        st.markdown('<div style="text-align:center; font-size:40px; margin-top: -50px; font-weight:bold; ">↓</div>', unsafe_allow_html=True)
+
 
     # Second row for the main workflow (aligned in a straight line)
     col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 2, 1, 2, 1, 2])
@@ -179,7 +203,7 @@ def data_generation_page():
     with col5:
         st.markdown(
             f'''
-            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: 10px;">
+            <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: -30px;">
                 <b>Populated Data Graph</b><br>
             </div>
             ''',
