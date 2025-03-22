@@ -112,7 +112,7 @@ def page_summary():
     steps = [
         ("Data Generation", "Data_Generation", ""),
         ("Semantic Resources", "https://git.rwth-aachen.de/nfdi-matwerk/iuc02", [
-            "Json Metadata Schema",
+            "JSON Metadata Schema",
             "Reference Dataset Ontology (RDO)",
             "Application-level extension for reference data on creep testing (RDOC)",
             "SCHACL Shapes",
@@ -173,8 +173,10 @@ def page_summary():
 
         /* Larger Box for "Semantic Resources and Metadata Schema" */
         .large-box {
-            width: 280px; /* Increased width */
-            height: 140px; /* Increased height */
+            width: 280px;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
         }
 
         .hover-box a {
@@ -192,7 +194,7 @@ def page_summary():
 
         .hover-box:hover {
             background-color: #05445e;
-            transform: scale(1.05);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); /* Instead of transform */
         }
     </style>
     """
