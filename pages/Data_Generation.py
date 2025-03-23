@@ -105,14 +105,17 @@ def data_generation_page():
             <div style="padding:20px; border:2px solid black; text-align:center; 
                         background-color:#05445e; border-radius:10px; color:white; 
                         font-size:18px; min-width:250px; 
-                        margin-left: -85px; margin-bottom: -100px">  
-                <b>Mapping</b><br>
+                        margin-left: -85px; margin-bottom: -140px">  
+                <b>Mapping <img src="https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png" 
+                    alt="GitLab" width="60" height="60" style="vertical-align:middle; margin-right:10px;"></b><br>
                 <li>Metadata Schema</li>
                 <li>Mapping Document</li>
             </div>
             ''',
             unsafe_allow_html=True
         )
+
+
 
     # Add space to separate extra box from main flow
     st.markdown("<br>", unsafe_allow_html=True)
@@ -127,7 +130,8 @@ def data_generation_page():
                         background-color:#05445e; border-radius:10px; color:white; 
                         min-width:50px;  margin-bottom: 0px; margin-top: -30px;
                         ">  
-                <b>Ontology (Graph)</b><br>
+                <b><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm8U7AGVOvLM-YbLe8fGD8cfqXmXQSY7umTQ&s" 
+                    alt="RDF" width="40" height="40" style="margin-left: -50px; margin-right:10px;">Ontology (Graph)</b><br>
             </div>
             ''',
             unsafe_allow_html=True
@@ -144,8 +148,9 @@ def data_generation_page():
             <div style="padding:15px; border:2px solid black; text-align:center; 
                         background-color:#05445e; border-radius:10px; color:white; 
                         min-width:160px;  margin-bottom: 40px; margin-top: -30px; margin-left:-30px
-                        ">  
-                <b>SHACL Shapes </b><br>
+                        "> 
+                <b><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjbiGuDUs4poajSf5Uw-ePPQFlvaPiyNX7Q&s " 
+                    alt="SHACL" width="40" height="40" style="margin-left: -30px; margin-right:10px;">SHACL Shapes </b><br>
             </div>
             ''',
             unsafe_allow_html=True
@@ -169,8 +174,9 @@ def data_generation_page():
         with st.container():
             st.markdown(
                 """
-                <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: -30px;">
-                    <b>Creep experiment input file (.lis file)</b><br>
+                <div style="padding:20px; border:2px solid black; text-align:center; background-color:#E3F2FD; border-radius:10px; margin-top: -30px">
+                    <b><img src="https://static.thenounproject.com/png/2952643-200.png" 
+                    alt="Validation" width="40" height="40" style="margin-top: -30px; margin-left: -80px; margin-right:30px;"> Creep experiment input file (.lis file)</b><br>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -191,10 +197,12 @@ def data_generation_page():
         st.markdown(
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#BBDEFB; border-radius:10px; margin-top: -30px;">
-                <b>Populated metadata schema</b><br>
+                <b><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXXncDxRMhI_hGVcdzPTdtms-up7obxhjyGA&s" 
+                    alt="JSON Schema" width="50" height="50" style="margin-top: -70px; margin-left: -80px; margin-right:10px;">Populated metadata schema</b><br>
             </div>
             ''',
             unsafe_allow_html=True
+            
         )
 
     with col4:
@@ -204,7 +212,8 @@ def data_generation_page():
         st.markdown(
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#90CAF9; border-radius:10px; margin-top: -30px;">
-                <b>Populated Data Graph</b><br>
+                <b><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm8U7AGVOvLM-YbLe8fGD8cfqXmXQSY7umTQ&s" 
+                    alt="RDF" width="40" height="40" style="margin-top: -70px; margin-left: -55px; margin-right:10px;">Populated Data Graph</b><br>
             </div>
             ''',
             unsafe_allow_html=True
@@ -217,7 +226,8 @@ def data_generation_page():
         st.markdown(
             f'''
             <div style="padding:20px; border:2px solid black; text-align:center; background-color:#64B5F6; border-radius:10px; margin-top: -30px;">
-                <b>Validation Protocol</b>
+                <b><img src="https://cdn-icons-png.freepik.com/512/5531/5531412.png" 
+                    alt="Validation" width="60" height="60" style="margin-top: -70px; margin-left: -55px; margin-right:10px;">Validation Protocol</b>
             </div>
             ''',
             unsafe_allow_html=True
