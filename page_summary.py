@@ -135,7 +135,7 @@ def page_summary():
                     <img src="https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png" 
                     alt="GitLab" width="100" height="100" style="position: absolute; right: -20px; top: 120px;">
                     <a href="{url}" target="_blank" style="display: inline-block;">{text}</a>
-                    <ul style="line-height: 1.8;">
+                    <ul style="line-height: 1.6;">
             '''
             for bullet in bullet_points:
                 workflow_html += f'<li>{bullet}</li>'
