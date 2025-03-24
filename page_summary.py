@@ -157,7 +157,7 @@ def page_summary():
                 <div class="hover-box large-box" onclick="window.open('{url}', '_blank')" 
                 style="position: relative; height: 70px; overflow: visible;">
                 <img src="https://kit-data-manager.github.io/fairdoscope/images/logo.png" 
-                    alt="FDO" width="70" height="70" 
+                    alt="FDO" width="50" height="50" 
                     style="position: absolute; right: 2px; top: 50px;">
                 <a href="{url}" target="_blank" style="display: inline-block;">{text}</a>
                 <ul></ul>
@@ -169,7 +169,7 @@ def page_summary():
                 <div class="hover-box large-box" onclick="window.open('{url}', '_blank')" 
                 style="position: relative; height: 70px; overflow: visible;">
                 <img src="https://cdn-icons-png.flaticon.com/512/14511/14511403.png" 
-                    alt="MSE Knowledge Graph" width="70" height="70" 
+                    alt="MSE Knowledge Graph" width="50" height="50" 
                     style="position: absolute; right: 2px; top: 50px;">
                 <a href="{url}" target="_blank" style="display: inline-block;">{text}</a>
                 <ul></ul>
