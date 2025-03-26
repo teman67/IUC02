@@ -29,7 +29,7 @@ def data_validation_page():
     st.markdown('''
     ## Data Validation Workflow 
 
-    - In this Data Validation Workflow you can explore how the exemplary *Data Graph* (*populated with data from the Reference data on creep*) is the validated against predefined SHACL Shapes (requirements the data has to fulfil, e.g. mandatory fields are present, and follows a specific datatype).
+    - In this Data Validation Workflow you can explore how the exemplary *Data Graph* (*populated with data from the Reference data on creep*) is validated against predefined SHACL Shapes (requirements the data has to fulfil, e.g. mandatory fields are present, and follows a specific datatype).
     
     - For this step the SHACL Shapes needs to be predefined. (**Shape Graph**). 
 

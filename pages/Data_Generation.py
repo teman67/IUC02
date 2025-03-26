@@ -51,10 +51,10 @@ def data_generation_page():
     - A **JSON Metadata Schema** 
     - A **Mapping Document** to correctly parse the Input data.
 
-    The Metadata Schema can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02).
+    The Metadata Schema can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02/-/tree/main/Data%20Schema).
 
     **Step 3:** Generate the **Populated Data Graph (RDF-Graph)** from the Populated Metadata Schema using Ontology entities. 
-    - This step requires an **Ontology**, which can be accessed in the same [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02).
+    - This step requires an **Ontology**, which can be accessed in the same [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02/-/tree/main/Ontology%20Development).
 
     **Step 4:** Validate the Data Graph against predefined **SHACL Shapes** to ensure:
     - Mandatory fields are present.
