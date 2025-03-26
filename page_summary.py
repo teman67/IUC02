@@ -131,9 +131,9 @@ def page_summary():
         if text == "Semantic Resources":
             # Special box with logo for "Semantic Resources"
             workflow_html += f'''
-                <div class="hover-box large-box" onclick="window.open('{url}', '_blank')"style="position: relative; height: 170px; overflow: visible;">
+                <div class="hover-box large-box" onclick="window.open('{url}', '_blank')"style="position: relative; height: 220px; overflow: visible;">
                     <img src="https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png" 
-                    alt="GitLab" width="100" height="100" style="position: absolute; right: -20px; top: 120px;">
+                    alt="GitLab" width="90" height="90" style="position: absolute; right: -20px; top: 180px;">
                     <a href="{url}" target="_blank" style="display: inline-block;">{text}</a>
                     <ul style="line-height: 1.6;">
             '''
@@ -238,7 +238,7 @@ def page_summary():
     """
 
     # Render the HTML component
-    components.html(workflow_html, height=250)
+    components.html(workflow_html, height=300)
 
 
 #page_summary()
