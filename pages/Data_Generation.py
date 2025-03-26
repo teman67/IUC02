@@ -128,7 +128,7 @@ def data_generation_page():
             f'''
             <div style="padding:15px; border:2px solid black; text-align:center;
                         background-color:#05445e; border-radius:10px; color:white; 
-                        min-width:50px;  margin-bottom: 0px; margin-top: -10px; max-width:180px; margin-left: -90px;
+                        min-width:50px;  margin-bottom: 0px; margin-top: -10px; max-width:180px; margin-left: -110px;
                         ">  
                 <b><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm8U7AGVOvLM-YbLe8fGD8cfqXmXQSY7umTQ&s" 
                     alt="RDF" width="40" height="40" style="margin-top: -70px; margin-left: -65px; margin-right:10px;">Ontology (Graph)</b><br>
@@ -147,7 +147,7 @@ def data_generation_page():
             f'''
             <div style="padding:15px; border:2px solid black; text-align:center;
                         background-color:#05445e; border-radius:10px; color:white; 
-                          margin-bottom: 0px; margin-top: -84px; margin-left:-220px; max-width:180px; 
+                          margin-bottom: 0px; margin-top: -84px; margin-left:-200px; max-width:180px; 
                         "> 
                 <b><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjbiGuDUs4poajSf5Uw-ePPQFlvaPiyNX7Q&s " 
                     alt="SHACL" width="40" height="40" style="margin-top: -70px; margin-left: -65px; margin-right:10px;">SHACL Shapes </b><br>
