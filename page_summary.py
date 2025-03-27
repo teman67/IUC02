@@ -12,20 +12,38 @@ def check_warning_message_state():
 
     if 'warning_shown' not in st.session_state:
         st.session_state.warning_shown = False
+    if 'warning_closed' not in st.session_state:
+        st.session_state.warning_closed = False
 
 # Function to show the warning message
 def show_warning_message():
     '''
     Displays the warning message recommending light mode over dark mode.
     '''
-
-    if not st.session_state.warning_shown:
+    if not st.session_state.warning_shown and not st.session_state.warning_closed:
         placeholder = st.empty()
-        placeholder.markdown('<div style="background-color: #FFEEEB; padding: 30px; margin-top: 40px; border-radius: 5px; text-align: center;"><p style="font-size: 20px; color: #333333"><strong>For better visualization, it is recommended to use Light mode instead of Dark mode in Settings (top right).</strong></p></div>', unsafe_allow_html=True)
-        st.session_state.warning_shown = True
+        
+        with placeholder.container():
+            col1, col2 = st.columns([9, 0.5])  # Create two columns
+            with col1:
+                st.markdown(
+                    """
+                    <div style="background-color: #FFEEEB; padding: 15px; margin-top: 40px; border-radius: 5px; text-align: center;">
+                        <p style="font-size: 18px; color: #333;">
+                            <strong>For better visualization, it is recommended to use Light mode instead of Dark mode in Settings (top right).</strong>
+                        </p>
+                    </div>
+                    <br>
+                    """, 
+                    unsafe_allow_html=True
+                )
+            with col2:
+                st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
+                if st.button("❌", key="close_warning", help="Close Warning", use_container_width=True):
+                    st.session_state.warning_closed = True
+                    placeholder.empty()  # Remove the warning message
 
-        time.sleep(5)  # Wait for 5 seconds
-        placeholder.empty()
+        st.session_state.warning_shown = True
 
 
 def get_base64_encoded_image(image_path):
