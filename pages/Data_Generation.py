@@ -60,7 +60,7 @@ def data_generation_page():
     - Mandatory fields are present.
     - The data follows a specific datatype.
 
-    The SHACL Shapes can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02).
+    The SHACL Shapes can be accessed in the [Git Repository](https://git.rwth-aachen.de/nfdi-matwerk/iuc02/-/tree/main/Data%20Validation).
 
     The **output of the Validation Process** is the **Validation Protocol**.
 
