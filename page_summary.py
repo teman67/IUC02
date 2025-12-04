@@ -136,7 +136,7 @@ def page_summary():
             "SCHACL Shapes",
         ]),
         ("Data Validation", "Data_Validation", ""),
-        ("MSE Knowledge Graph", "http://en.lodlive.it/?https://purls.helmholtz-metadaten.de/msekg/E1173747", []),
+        ("MSE Knowledge Graph", "https://nfdi.fiz-karlsruhe.de/matwerk/", []),
         ("FAIR Digital Objects (FDO)", "https://kit-data-manager.github.io/fairdoscope/?pid=21.11152/253e0f2a-4d4a-4916-a45a-ef7cd8ad1f9b", []),
     ]
 
